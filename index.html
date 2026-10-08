@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5f2">
+  <meta name="description" content="Год посещения — общее направление для церквей СЦЕХ: посещаем людей, ищем Бога, принимаем преображение.">
+  <title>Год посещения — СЦЕХ</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f5f2;
+      --white: #fffdfa;
+      --ink: #1e1b1a;
+      --muted: #645e5a;
+      --line: #ded9d3;
+      --red: #ad2029;
+      --red-dark: #85141c;
+      --red-soft: #f7e8e6;
+      --dark: #231e1c;
+      --max: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; line-height: 1.55; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible { outline: 3px solid var(--red); outline-offset: 5px; border-radius: 2px; }
+    .skip-link { position: absolute; z-index: 20; top: -60px; left: 12px; padding: 10px 14px; background: var(--white); color: var(--ink); }
+    .skip-link:focus { top: 12px; }
+    .wrap { width: min(var(--max), calc(100% - 72px)); margin-inline: auto; }
+    .eyebrow { margin: 0 0 18px; color: var(--red); font-size: .76rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    .section { padding-block: clamp(78px, 9vw, 132px); }
+    .section-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, .62fr); gap: 40px; align-items: end; margin-bottom: 46px; }
+    .section-head h2, .section-title { margin: 0; font-size: clamp(2.4rem, 5.2vw, 5.2rem); line-height: .99; letter-spacing: -.065em; font-weight: 760; }
+    .section-head p:last-child { margin: 0; color: var(--muted); font-size: clamp(1rem, 1.35vw, 1.15rem); }
+    .rule { height: 1px; background: var(--line); }
+
+    .site-header { border-bottom: 1px solid #403633; background: #171313; color: white; }
+    .header-inner { min-height: 82px; display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+    .brand { display: inline-flex; gap: 16px; align-items: center; text-decoration: none; font-weight: 850; letter-spacing: -.045em; white-space: nowrap; }
+    .brand-logo { display: block; width: 126px; height: auto; flex: none; }
+    .brand-title { padding-left: 16px; border-left: 1px solid #665955; font-size: 1.03rem; }
+    .main-nav { display: flex; flex-wrap: wrap; gap: clamp(18px, 3vw, 42px); align-items: center; }
+    .main-nav a { text-decoration: none; color: #e5dcd8; font-size: .88rem; font-weight: 650; }
+    .main-nav a:hover { color: #f18b88; }
+    .site-header a:focus-visible { outline-color: #f18b88; }
+
+    .hero { overflow: hidden; }
+    .hero-inner { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(330px, .92fr); gap: clamp(24px, 4vw, 70px); align-items: center; min-height: min(790px, calc(100svh - 82px)); padding-block: 92px 100px; }
+    .hero h1 { margin: 0; font-size: clamp(4.4rem, 8.5vw, 9.3rem); letter-spacing: -.083em; line-height: .86; font-weight: 800; }
+    .hero h1 span { display: block; }
+    .hero h1 span:last-child { color: var(--red); }
+    .hero-lead { max-width: 660px; margin: 37px 0 0; font-size: clamp(1.16rem, 1.65vw, 1.5rem); line-height: 1.43; letter-spacing: -.025em; }
+    .hero-formula { margin: 21px 0 0; color: var(--muted); font-size: .98rem; font-weight: 600; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 39px; }
+    .button { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; gap: 15px; padding: 13px 20px; text-decoration: none; font-size: .92rem; font-weight: 760; transition: background .2s ease, color .2s ease, transform .2s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--red); color: white; }
+    .button-primary:hover { background: var(--red-dark); }
+    .button-outline { border: 1px solid #b9b1aa; }
+    .button-outline:hover { background: var(--white); }
+    .button svg { width: 17px; height: 17px; flex: none; }
+    .hero-visual { position: relative; width: 100%; max-width: 555px; aspect-ratio: 1 / 1.03; margin-left: auto; }
+    .hero-visual::before { content: ""; position: absolute; inset: 4%; border: 1px solid #ded4cd; border-radius: 50%; }
+    .hero-visual::after { content: ""; position: absolute; inset: 21%; border: 1px solid #e8ddd6; border-radius: 50%; }
+    .hero-path { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    .hero-path path { fill: none; stroke: #c8b9ae; stroke-width: 1.25; }
+    .hero-path .path-red { stroke: var(--red); stroke-width: 2.4; }
+    .diagram-node { position: absolute; z-index: 2; display: grid; place-items: center; text-align: center; border-radius: 50%; background: var(--white); border: 1px solid #dcd2ca; box-shadow: 0 18px 50px rgba(68,38,28,.08); line-height: 1.15; font-weight: 760; letter-spacing: -.035em; }
+    .diagram-node small { display: block; margin-bottom: 8px; font-size: clamp(1.35rem, 2.2vw, 1.8rem); line-height: 1; color: var(--red); font-weight: 850; letter-spacing: -.04em; }
+    .node-people { width: 34%; aspect-ratio: 1; left: 33%; top: 0; font-size: clamp(1rem, 1.7vw, 1.5rem); }
+    .node-god { width: 38%; aspect-ratio: 1; right: 0; top: 34%; font-size: clamp(1rem, 1.7vw, 1.5rem); border-color: #c08a88; }
+    .node-change { width: 42%; aspect-ratio: 1; left: 0; bottom: 2%; font-size: clamp(.98rem, 1.65vw, 1.46rem); color: white; background: var(--red); border-color: var(--red); }
+    .node-change small { color: #ffe7e4; }
+    .hero-art-note { position: absolute; z-index: 3; top: 14%; left: 4%; max-width: 120px; font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .16em; color: #9a8d83; transform: rotate(-8deg); }
+
+    .scripture { background: var(--dark); color: #fff9f4; }
+    .scripture-inner { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(230px, .5fr); gap: clamp(35px, 7vw, 100px); align-items: end; }
+    .scripture .eyebrow { color: #ef8684; }
+    .scripture blockquote { margin: 0; font-size: clamp(1.65rem, 3vw, 3.1rem); line-height: 1.22; letter-spacing: -.045em; font-weight: 520; }
+    .scripture cite { display: block; margin-top: 25px; color: #d0beb6; font-size: .87rem; font-style: normal; letter-spacing: .03em; }
+    .scripture-aside { border-left: 1px solid #74605a; padding-left: 28px; }
+    .scripture-aside p { margin: 0; font-size: clamp(1.1rem, 1.5vw, 1.42rem); line-height: 1.35; }
+    .scripture-aside cite { margin-top: 18px; }
+
+    .direction-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .direction-card { min-height: 455px; display: flex; flex-direction: column; padding: clamp(28px, 3.4vw, 48px); border: 1px solid var(--line); background: var(--white); position: relative; overflow: hidden; }
+    .direction-card::after { content: ""; width: 255px; height: 255px; border: 1px solid #e3d9d2; border-radius: 50%; position: absolute; right: -80px; bottom: -110px; box-shadow: 0 0 0 36px rgba(226,217,210,.23), 0 0 0 80px rgba(226,217,210,.12); }
+    .direction-card-red { background: var(--red); color: white; border-color: var(--red); }
+    .direction-card-red::after { border-color: rgba(255,255,255,.33); box-shadow: 0 0 0 36px rgba(255,255,255,.08), 0 0 0 80px rgba(255,255,255,.05); }
+    .direction-number { font-size: .82rem; font-weight: 800; letter-spacing: .16em; }
+    .direction-card h3 { position: relative; z-index: 1; max-width: 420px; margin: auto 0 20px; font-size: clamp(2rem, 3.5vw, 3.55rem); line-height: 1.02; letter-spacing: -.06em; }
+    .direction-card p { position: relative; z-index: 1; max-width: 470px; margin: 0; font-size: 1.05rem; }
+    .direction-card-red p { color: #ffe7e3; }
+    .direction-footnote { margin: 25px 0 0; color: var(--muted); font-size: .92rem; }
+
+    .people-section { background: #ece8e3; }
+    .people-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .people-card { min-height: 320px; background: var(--paper); border-top: 4px solid var(--ink); padding: 28px; display: flex; flex-direction: column; }
+    .people-card:last-child { border-top-color: var(--red); }
+    .people-card .card-top { color: var(--red); font-size: .75rem; font-weight: 850; text-transform: uppercase; letter-spacing: .16em; }
+    .people-card h3 { margin: 50px 0 12px; font-size: clamp(1.65rem, 2.35vw, 2.45rem); line-height: 1.04; letter-spacing: -.05em; }
+    .people-card p { margin: auto 0 0; color: var(--muted); font-size: .96rem; }
+    .mentor-band { margin-top: 16px; display: flex; justify-content: space-between; gap: 25px; align-items: center; background: var(--dark); color: white; padding: 25px 30px; }
+    .mentor-band strong { font-size: 1.08rem; }
+    .mentor-band p { max-width: 650px; margin: 0; color: #e2d8d2; font-size: .95rem; }
+
+    .action-intro { max-width: 700px; margin: -10px 0 34px; color: var(--muted); font-size: 1.06rem; }
+    .actions-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .action-card { min-height: 230px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 27px; background: var(--white); display: flex; flex-direction: column; }
+    .action-card .num { color: var(--red); font-size: .78rem; font-weight: 850; letter-spacing: .16em; }
+    .action-card h3 { margin: 36px 0 8px; font-size: 1.45rem; letter-spacing: -.04em; line-height: 1.13; }
+    .action-card p { margin: 0; color: var(--muted); font-size: .93rem; }
+    .action-card-feature { grid-column: span 2; background: var(--red-soft); }
+    .action-card-feature h3 { font-size: clamp(1.45rem, 2.4vw, 2.25rem); }
+    .relation-flow { margin-top: 54px; padding: 32px 0 0; border-top: 1px solid var(--line); }
+    .relation-flow h3 { margin: 0 0 25px; font-size: 1.35rem; letter-spacing: -.04em; }
+    .flow-list { list-style: none; margin: 0; padding: 0; display: flex; gap: 0; }
+    .flow-list li { flex: 1; padding: 0 12px 0 0; display: flex; gap: 12px; align-items: center; color: var(--muted); font-size: .91rem; font-weight: 700; }
+    .flow-list li::after { content: "→"; color: var(--red); margin-left: auto; font-size: 1.5rem; font-weight: 400; }
+    .flow-list li:last-child::after { display: none; }
+
+    .rhythm-section { background: #f0eae5; }
+    .rhythm-intro { max-width: 800px; margin: -12px 0 40px; font-size: 1.1rem; color: var(--muted); }
+    .year-board { background: var(--white); border: 1px solid #d8cec6; padding: clamp(24px, 3vw, 38px); }
+    .board-label { margin: 0 0 26px; color: var(--red); font-size: .76rem; font-weight: 850; letter-spacing: .17em; text-transform: uppercase; }
+    .track { display: grid; grid-template-columns: minmax(150px, 230px) 1fr auto; gap: 18px; align-items: center; margin-bottom: 20px; }
+    .track-name { font-size: .95rem; font-weight: 700; line-height: 1.2; }
+    .track-line { height: 8px; border-radius: 100px; position: relative; background: #2b2523; }
+    .track-line::before, .track-line::after { content: ""; position: absolute; width: 12px; height: 12px; top: -2px; border-radius: 50%; background: inherit; }
+    .track-line::before { left: 0; }
+    .track-line::after { right: 0; }
+    .track:nth-of-type(2) .track-line { background: #735e55; }
+    .track:nth-of-type(3) .track-line { background: var(--red); }
+    .track-year { color: var(--muted); font-size: .8rem; font-weight: 750; white-space: nowrap; }
+    .quarter-title { margin: 48px 0 19px; padding-top: 29px; border-top: 1px solid var(--line); font-size: .78rem; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
+    .quarters { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .quarter { min-height: 182px; border-top: 3px solid #d8c9c2; padding: 19px 13px 0 0; }
+    .quarter:first-child { border-top-color: var(--red); }
+    .quarter .roman { display: block; margin-bottom: 30px; color: var(--red); font-weight: 850; font-size: .8rem; }
+    .quarter h3 { margin: 0 0 6px; font-size: 1.3rem; letter-spacing: -.04em; line-height: 1.1; }
+    .quarter p { margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.35; }
+    .board-note { margin: 21px 0 0; color: var(--muted); font-size: .87rem; }
+    .checkpoints { margin-top: 47px; padding-top: 33px; border-top: 1px solid var(--line); }
+    .checkpoints-head { display: flex; justify-content: space-between; align-items: baseline; gap: 30px; margin-bottom: 25px; }
+    .checkpoints-head h3 { margin: 0; font-size: clamp(1.5rem, 2.4vw, 2.3rem); line-height: 1.05; letter-spacing: -.05em; }
+    .checkpoints-head p { max-width: 420px; margin: 0; color: var(--muted); font-size: .9rem; }
+    .checkpoint-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin: 0; padding: 0; list-style: none; }
+    .checkpoint-list li { position: relative; padding-top: 20px; border-top: 2px solid #cdbbb4; }
+    .checkpoint-list li::before { content: ""; position: absolute; left: 0; top: -8px; width: 12px; height: 12px; border-radius: 50%; background: var(--red); border: 2px solid var(--white); box-shadow: 0 0 0 1px var(--red); }
+    .checkpoint-list .point-number { display: block; color: var(--red); font-size: .72rem; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
+    .checkpoint-list h4 { margin: 13px 0 8px; font-size: clamp(1.25rem, 1.7vw, 1.65rem); line-height: 1.08; letter-spacing: -.045em; }
+    .checkpoint-list p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.45; }
+    .checkpoint-result { margin: 30px 0 0; padding: 21px 24px; background: var(--red-soft); border-left: 4px solid var(--red); font-size: .94rem; }
+    .checkpoint-result strong { color: var(--red-dark); }
+
+    .metrics { background: var(--dark); color: white; }
+    .metrics .section-head p:last-child { color: #cdbdb5; }
+    .metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #75625a; }
+    .metric { padding: 31px 28px 10px 0; border-right: 1px solid #75625a; }
+    .metric + .metric { padding-left: 28px; }
+    .metric:last-child { border-right: 0; }
+    .metric strong { display: block; color: #f08683; font-size: clamp(3rem, 6vw, 6rem); line-height: .95; letter-spacing: -.07em; font-weight: 750; }
+    .metric p { max-width: 320px; margin: 16px 0 0; font-size: .95rem; color: #eee0d8; }
+    .metric-note { margin: 34px 0 0; color: #cdbdb5; font-size: .86rem; }
+
+    .cta { padding-block: clamp(90px, 11vw, 160px); }
+    .cta-inner { display: grid; grid-template-columns: 1fr minmax(270px, .55fr); gap: 35px; align-items: end; }
+    .cta h2 { max-width: 950px; margin: 0; font-size: clamp(3.3rem, 7vw, 7.8rem); line-height: .93; letter-spacing: -.075em; }
+    .cta h2 span { color: var(--red); }
+    .cta-side p { margin: 0 0 27px; font-size: 1.13rem; line-height: 1.45; }
+    .cta-side .button { width: fit-content; }
+    .site-footer { border-top: 1px solid var(--line); padding-block: 28px 38px; }
+    .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; align-items: center; color: var(--muted); font-size: .83rem; }
+    .footer-inner strong { color: var(--ink); }
+
+    @media (max-width: 980px) {
+      .wrap { width: min(var(--max), calc(100% - 48px)); }
+      .hero-inner { grid-template-columns: 1fr .85fr; min-height: 650px; }
+      .hero h1 { font-size: clamp(4rem, 8.5vw, 6.5rem); }
+      .node-people, .node-god, .node-change { font-size: 1rem; }
+      .people-card { min-height: 355px; }
+    }
+    @media (max-width: 760px) {
+      .header-inner { min-height: 72px; }
+      .main-nav { display: none; }
+      .section-head { grid-template-columns: 1fr; gap: 18px; }
+      .hero-inner { display: flex; flex-direction: column; align-items: stretch; padding-block: 66px 72px; min-height: 0; }
+      .hero h1 { font-size: clamp(4.3rem, 15vw, 7rem); }
+      .hero-visual { width: min(100%, 530px); margin: 35px auto 0; }
+      .node-people, .node-god, .node-change { font-size: clamp(1rem, 3.3vw, 1.5rem); }
+      .scripture-inner, .cta-inner { grid-template-columns: 1fr; }
+      .scripture-aside { margin-top: 15px; }
+      .direction-grid { grid-template-columns: 1fr; }
+      .direction-card { min-height: 365px; }
+      .people-grid { grid-template-columns: 1fr; }
+      .people-card { min-height: 215px; }
+      .people-card h3 { margin-top: 30px; }
+      .mentor-band { align-items: flex-start; flex-direction: column; }
+      .actions-grid { grid-template-columns: repeat(2, 1fr); }
+      .action-card-feature { grid-column: span 2; }
+      .flow-list { flex-wrap: wrap; row-gap: 12px; }
+      .flow-list li { min-width: 31%; flex: none; }
+      .checkpoints-head { display: block; }
+      .checkpoints-head p { margin-top: 10px; }
+      .metric-grid { grid-template-columns: 1fr; }
+      .metric, .metric + .metric { padding: 24px 0; border-right: 0; border-bottom: 1px solid #75625a; }
+      .metric:last-child { border-bottom: 0; }
+    }
+    @media (max-width: 540px) {
+      .wrap { width: calc(100% - 36px); }
+      .brand { gap: 10px; }
+      .brand-logo { width: 98px; }
+      .brand-title { padding-left: 10px; font-size: .92rem; }
+      .section { padding-block: 72px; }
+      .eyebrow { font-size: .69rem; }
+      .hero-inner { padding-top: 54px; }
+      .hero h1 { font-size: clamp(3.65rem, 16vw, 5.2rem); }
+      .hero-lead { margin-top: 28px; }
+      .hero-visual { margin-top: 30px; }
+      .hero-art-note { display: none; }
+      .node-people, .node-god, .node-change { font-size: clamp(.75rem, 3vw, 1rem); }
+      .diagram-node small { margin-bottom: 4px; font-size: clamp(1.08rem, 5.2vw, 1.4rem); }
+      .direction-card { min-height: 325px; }
+      .actions-grid { grid-template-columns: 1fr; }
+      .action-card-feature { grid-column: auto; }
+      .action-card { min-height: 195px; }
+      .flow-list { display: block; }
+      .flow-list li { justify-content: space-between; min-width: 0; padding: 5px 0; }
+      .flow-list li::after { transform: rotate(90deg); margin-right: 8px; }
+      .track { grid-template-columns: 1fr auto; gap: 7px 12px; margin-bottom: 19px; }
+      .track-line { grid-column: 1 / -1; grid-row: 2; }
+      .track-year { grid-column: 2; grid-row: 1; }
+      .quarter-title { margin-top: 35px; }
+      .quarters { grid-template-columns: repeat(2, 1fr); gap: 8px 16px; }
+      .quarter { min-height: 150px; }
+      .quarter .roman { margin-bottom: 18px; }
+      .checkpoint-list { grid-template-columns: 1fr; gap: 22px; }
+      .checkpoint-list li { padding-top: 16px; }
+      .cta h2 { font-size: clamp(3.3rem, 13vw, 5rem); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
+      .button:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">К основному содержанию</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="СЦЕХ. Год посещения — наверх">
+        <svg class="brand-logo" viewBox="0 0 250 68" aria-hidden="true" focusable="false">
+          <path fill="#fff" d="M47 13 39 22C32 16 22 16 16 23 9 30 10 41 17 47c6 6 16 6 23 0l8 9c-12 10-29 11-40 1C-3 47-3 25 8 14 19 3 36 3 47 13ZM61 6h13v42h29V6h13v42h7v17h-13v-6H61V6ZM148 6h38v12h-38V6ZM148 47h38v12h-38V47ZM191 6h17l13 17 12-17h17l-21 26 21 27h-17l-12-18-13 18h-17l22-27-22-26Z"/>
+          <path fill="#d74246" d="M135 6h13v20h25v12h-25v21h-13V38h-18V26h18V6Z"/>
+        </svg>
+        <span class="brand-title">Год посещения</span>
+      </a>
+      <nav class="main-nav" aria-label="Разделы страницы">
+        <a href="#idea">Идея года</a>
+        <a href="#participation">Как участвовать</a>
+        <a href="#rhythm">Ритм года</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Общее направление для церквей СЦЕХ</p>
+          <h1 id="hero-title"><span>Год</span><span>посещения</span></h1>
+          <p class="hero-lead">Время идти навстречу людям и вместе искать Бога, ожидая преображения личности, семьи, служения и церкви.</p>
+          <p class="hero-formula">Посещаем людей · Ищем Бога · Принимаем преображение</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#participation">Найти свой шаг <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h14M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="button button-outline" href="#idea">Понять идею года</a>
+          </div>
+        </div>
+        <div class="hero-visual" role="img" aria-label="Схема главной идеи: посещаем людей, ищем Бога, принимаем преображение">
+          <svg class="hero-path" viewBox="0 0 550 570" aria-hidden="true" focusable="false">
+            <path d="M275 97C382 91 475 181 467 296C462 402 384 472 278 475C167 478 89 402 87 301C85 187 169 103 275 97Z"/>
+            <path class="path-red" d="M275 97C382 101 468 187 445 309C427 399 281 470 115 446C86 311 157 156 275 97Z"/>
+            <circle cx="275" cy="97" r="6" fill="#ad2029"/>
+            <circle cx="445" cy="309" r="6" fill="#ad2029"/>
+            <circle cx="115" cy="446" r="6" fill="#ad2029"/>
+          </svg>
+          <span class="hero-art-note">Одно общее движение</span>
+          <div class="diagram-node node-people"><span><small>01</small>Посещаем<br>людей</span></div>
+          <div class="diagram-node node-god"><span><small>02</small>Ищем<br>Бога</span></div>
+          <div class="diagram-node node-change"><span><small>03</small>Принимаем<br>преображение</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scripture section" aria-labelledby="scripture-title">
+      <div class="wrap scripture-inner">
+        <div>
+          <p class="eyebrow" id="scripture-title">Библейское основание</p>
+          <blockquote>«Так будем же заботиться друг о друге, побуждать друг друга к любви и добрым делам. Не будем отказываться от совместных встреч... будем ободрять друг друга и будем ещё ревностнее во всём...»</blockquote>
+          <cite>Евреям 10:24–25</cite>
+        </div>
+        <div class="scripture-aside">
+          <p>«Приблизьтесь к Богу, и приблизится к вам»</p>
+          <cite>Иакова 4:8</cite>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="idea" aria-labelledby="idea-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">Суть года</p><h2 id="idea-title">Два направления.<br>Одно сердце.</h2></div>
+          <p>Мы укрепляем отношения с людьми и открываемся действию Бога. Эти движения идут вместе на протяжении всего года.</p>
+        </div>
+        <div class="direction-grid">
+          <article class="direction-card">
+            <span class="direction-number">01 / К людям</span>
+            <h3>Мы посещаем людей</h3>
+            <p>Замечаем человека рядом, заботимся и ободряем. Укрепляем связи внутри общин и между церквями, поддерживаем тех, кто остаётся один, развиваем наставничество.</p>
+          </article>
+          <article class="direction-card direction-card-red">
+            <span class="direction-number">02 / К Богу</span>
+            <h3>Мы ищем Божьего посещения</h3>
+            <p>Через молитву, пост, Писание, уединение и покаяние ищем Бога вместе и открываемся преображению, которое совершает Он.</p>
+          </article>
+        </div>
+        <p class="direction-footnote">Мы не определяем, когда и как действует Бог. Наша часть — приближаться к Нему и быть открытыми Его работе.</p>
+      </div>
+    </section>
+
+    <section class="people-section section" id="participation" aria-labelledby="participation-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">Участие на своём уровне</p><h2 id="participation-title">Каждый может<br>быть рядом.</h2></div>
+          <p>Посещения происходят одновременно на разных уровнях. У каждого — свой круг людей и своя мера ответственности.</p>
+        </div>
+        <div class="people-grid">
+          <article class="people-card"><span class="card-top">Человек и община</span><h3>В своём круге</h3><p>Прихожане и служители заботятся о людях рядом: в церкви, семье, среди друзей и соседей.</p></article>
+          <article class="people-card"><span class="card-top">Церкви Союза</span><h3>Между общинами</h3><p>Пасторы и их команды навещают другие церкви, особенно удалённые и одинокие, чтобы поддерживать связь и служение.</p></article>
+          <article class="people-card"><span class="card-top">Братское единство</span><h3>Между союзами</h3><p>Руководители и служители Союза развивают отношения с другими объединениями через встречи, молитву и совместное служение.</p></article>
+        </div>
+        <div class="mentor-band"><strong>Духовное наставничество</strong><p>Пасторы, служители и прихожане укрепляют отношения духовной заботы, чтобы никто не оставался без поддержки и наставления.</p></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="actions-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">Как это может выглядеть</p><h2 id="actions-title">Действия года.</h2></div>
+          <p>Это общие направления для церквей и служителей. Выберите то, что относится к вашей роли и людям вокруг вас.</p>
+        </div>
+        <div class="actions-grid">
+          <article class="action-card"><span class="num">01</span><h3>Посети человека</h3><p>Личные встречи с прихожанами, семьями, нуждающимися, друзьями и соседями.</p></article>
+          <article class="action-card"><span class="num">02</span><h3>Церковь посещает церковь</h3><p>Братские и пасторские визиты между общинами Союза.</p></article>
+          <article class="action-card"><span class="num">03</span><h3>Никто не один</h3><p>Внимание и поддержка одиноких и удалённых общин.</p></article>
+          <article class="action-card"><span class="num">04</span><h3>Духовное наставничество</h3><p>Живые отношения между пасторами, служителями, наставниками и прихожанами.</p></article>
+          <article class="action-card"><span class="num">05</span><h3>Дни искания Бога</h3><p>Общие дни молитвы и поста.</p></article>
+          <article class="action-card"><span class="num">06</span><h3>Семья в фокусе</h3><p>Семейная молитва и совместное участие в служении церкви.</p></article>
+          <article class="action-card action-card-feature"><span class="num">07</span><h3>Единство</h3><p>Братские отношения, встречи и совместное служение с другими союзами и содружествами.</p></article>
+        </div>
+        <div class="relation-flow">
+          <h3>Посещение — начало отношений, а не отдельное событие</h3>
+          <ol class="flow-list"><li>Встреча</li><li>Нужда</li><li>Молитва</li><li>Договорённость</li><li>Следующий контакт</li></ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="rhythm-section section" id="rhythm" aria-labelledby="rhythm-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">Ритм года</p><h2 id="rhythm-title">Все направления<br>идут вместе.</h2></div>
+          <p>Посещения на каждом уровне начинаются с начала года и продолжаются весь год. По кварталам меняется лишь общий акцент.</p>
+        </div>
+        <div class="year-board" aria-label="Схема года: три направления посещений идут весь год, каждый квартал имеет свой акцент">
+          <p class="board-label">Параллельно в течение всего года</p>
+          <div class="track"><span class="track-name">Внутри общин</span><span class="track-line" aria-hidden="true"></span><span class="track-year">весь год</span></div>
+          <div class="track"><span class="track-name">Между церквями Союза</span><span class="track-line" aria-hidden="true"></span><span class="track-year">весь год</span></div>
+          <div class="track"><span class="track-name">Между союзами</span><span class="track-line" aria-hidden="true"></span><span class="track-year">весь год</span></div>
+          <p class="quarter-title">Акценты по кварталам</p>
+          <div class="quarters">
+            <article class="quarter"><span class="roman">I квартал</span><h3>Увидеть и соединить</h3><p>Заметить людей и нужды, укрепить первые связи.</p></article>
+            <article class="quarter"><span class="roman">II квартал</span><h3>Укрепить</h3><p>Углубить отношения в семьях и церквях.</p></article>
+            <article class="quarter"><span class="roman">III квартал</span><h3>Расширить</h3><p>Поддерживать братское единство и сотрудничество.</p></article>
+            <article class="quarter"><span class="roman">IV квартал</span><h3>Закрепить</h3><p>Продолжить начатое и сохранить живые связи.</p></article>
+          </div>
+          <p class="board-note">Квартальный акцент помогает распределять внимание; он не ограничивает время посещений.</p>
+          <div class="checkpoints" aria-labelledby="checkpoints-title">
+            <div class="checkpoints-head">
+              <h3 id="checkpoints-title">Три контрольные точки</h3>
+              <p>На общих встречах Союза сверяем, как меняются участие, забота и отношения между церквями.</p>
+            </div>
+            <ol class="checkpoint-list">
+              <li><span class="point-number">01 / контрольная точка</span><h4>Пасха</h4><p>Первая сверка: что удалось начать в посещениях, заботе о нуждающихся и укреплении связей.</p></li>
+              <li><span class="point-number">02 / контрольная точка</span><h4>Троица</h4><p>Смотрим, как укрепляются семьи, наставничество и поддержка между общинами.</p></li>
+              <li><span class="point-number">03 / контрольная точка</span><h4>Единое богослужение</h4><p>Подводим итоги посещений и видим, как укрепились связи между церквями Союза.</p></li>
+            </ol>
+            <p class="checkpoint-result"><strong>Итоговый ориентир:</strong> ожидаем делегации от большинства церквей на Едином богослужении — как видимый знак укрепившихся связей и братского единства.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="metrics section" aria-labelledby="metrics-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">Ориентиры года</p><h2 id="metrics-title">Важны люди<br>и отношения.</h2></div>
+          <p>Стратегия смотрит не только на число встреч, но и на то, становятся ли отношения крепче, а забота — постоянной.</p>
+        </div>
+        <div class="metric-grid">
+          <div class="metric"><strong>50%</strong><p>Не менее половины активных членов церквей участвуют в личных посещениях.</p></div>
+          <div class="metric"><strong>Все</strong><p>Каждая церковь Союза получает братский или пасторский визит.</p></div>
+          <div class="metric"><strong>4</strong><p>Общих Дня искания Бога в течение года.</p></div>
+        </div>
+        <p class="metric-note">Это общие ориентиры для церквей Союза, а не личные нормы для каждого человека.</p>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="wrap cta-inner">
+        <div><p class="eyebrow">Общий следующий шаг</p><h2 id="cta-title">Начни с человека <span>рядом.</span></h2></div>
+        <div class="cta-side"><p>Включись в тему года, подумай, кого ты можешь посетить и поддержать. Обсуди своё участие со своим пастором и поделись этой идеей с другими.</p><a class="button button-primary" href="#participation">Посмотреть направления <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h14M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap footer-inner"><strong>Год посещения · СЦЕХ</strong><span>Посещаем людей · Ищем Бога · Принимаем преображение</span></div></footer>
+</body>
+</html>
