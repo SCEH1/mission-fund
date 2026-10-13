@@ -3,430 +3,134 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f5f2">
-  <meta name="description" content="Год посещения — общее направление для церквей СЦЕХ: посещаем людей, ищем Бога, принимаем преображение.">
-  <title>Год посещения — СЦЕХ</title>
+  <meta name="theme-color" content="#0d0d10">
+  <meta name="description" content="Курс подготовки миссионерских команд. Пять дней: библейский фундамент, понимание культуры и практические шаги. Миссионерский отдел СЦЕХ.">
+  <title>Курс подготовки миссионерских команд — СЦЕХ</title>
   <style>
-    :root {
-      color-scheme: light;
-      --paper: #f7f5f2;
-      --white: #fffdfa;
-      --ink: #1e1b1a;
-      --muted: #645e5a;
-      --line: #ded9d3;
-      --red: #ad2029;
-      --red-dark: #85141c;
-      --red-soft: #f7e8e6;
-      --dark: #231e1c;
-      --max: 1200px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; line-height: 1.55; }
-    a { color: inherit; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    a:focus-visible { outline: 3px solid var(--red); outline-offset: 5px; border-radius: 2px; }
-    .skip-link { position: absolute; z-index: 20; top: -60px; left: 12px; padding: 10px 14px; background: var(--white); color: var(--ink); }
-    .skip-link:focus { top: 12px; }
-    .wrap { width: min(var(--max), calc(100% - 72px)); margin-inline: auto; }
-    .eyebrow { margin: 0 0 18px; color: var(--red); font-size: .76rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
-    .section { padding-block: clamp(78px, 9vw, 132px); }
-    .section-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, .62fr); gap: 40px; align-items: end; margin-bottom: 46px; }
-    .section-head h2, .section-title { margin: 0; font-size: clamp(2.4rem, 5.2vw, 5.2rem); line-height: .99; letter-spacing: -.065em; font-weight: 760; }
-    .section-head p:last-child { margin: 0; color: var(--muted); font-size: clamp(1rem, 1.35vw, 1.15rem); }
-    .rule { height: 1px; background: var(--line); }
-
-    .site-header { border-bottom: 1px solid #403633; background: #171313; color: white; }
-    .header-inner { min-height: 82px; display: flex; justify-content: space-between; align-items: center; gap: 30px; }
-    .brand { display: inline-flex; gap: 16px; align-items: center; text-decoration: none; font-weight: 850; letter-spacing: -.045em; white-space: nowrap; }
-    .brand-logo { display: block; width: 126px; height: auto; flex: none; }
-    .brand-title { padding-left: 16px; border-left: 1px solid #665955; font-size: 1.03rem; }
-    .main-nav { display: flex; flex-wrap: wrap; gap: clamp(18px, 3vw, 42px); align-items: center; }
-    .main-nav a { text-decoration: none; color: #e5dcd8; font-size: .88rem; font-weight: 650; }
-    .main-nav a:hover { color: #f18b88; }
-    .site-header a:focus-visible { outline-color: #f18b88; }
-
-    .hero { overflow: hidden; }
-    .hero-inner { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(330px, .92fr); gap: clamp(24px, 4vw, 70px); align-items: center; min-height: min(790px, calc(100svh - 82px)); padding-block: 92px 100px; }
-    .hero h1 { margin: 0; font-size: clamp(4.4rem, 8.5vw, 9.3rem); letter-spacing: -.083em; line-height: .86; font-weight: 800; }
-    .hero h1 span { display: block; }
-    .hero h1 span:last-child { color: var(--red); }
-    .hero-lead { max-width: 660px; margin: 37px 0 0; font-size: clamp(1.16rem, 1.65vw, 1.5rem); line-height: 1.43; letter-spacing: -.025em; }
-    .hero-formula { margin: 21px 0 0; color: var(--muted); font-size: .98rem; font-weight: 600; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 39px; }
-    .button { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; gap: 15px; padding: 13px 20px; text-decoration: none; font-size: .92rem; font-weight: 760; transition: background .2s ease, color .2s ease, transform .2s ease; }
-    .button:hover { transform: translateY(-2px); }
-    .button-primary { background: var(--red); color: white; }
-    .button-primary:hover { background: var(--red-dark); }
-    .button-outline { border: 1px solid #b9b1aa; }
-    .button-outline:hover { background: var(--white); }
-    .button svg { width: 17px; height: 17px; flex: none; }
-    .hero-visual { position: relative; width: 100%; max-width: 555px; aspect-ratio: 1 / 1.03; margin-left: auto; }
-    .hero-visual::before { content: ""; position: absolute; inset: 4%; border: 1px solid #ded4cd; border-radius: 50%; }
-    .hero-visual::after { content: ""; position: absolute; inset: 21%; border: 1px solid #e8ddd6; border-radius: 50%; }
-    .hero-path { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-    .hero-path path { fill: none; stroke: #c8b9ae; stroke-width: 1.25; }
-    .hero-path .path-red { stroke: var(--red); stroke-width: 2.4; }
-    .diagram-node { position: absolute; z-index: 2; display: grid; place-items: center; text-align: center; border-radius: 50%; background: var(--white); border: 1px solid #dcd2ca; box-shadow: 0 18px 50px rgba(68,38,28,.08); line-height: 1.15; font-weight: 760; letter-spacing: -.035em; }
-    .diagram-node small { display: block; margin-bottom: 8px; font-size: clamp(1.35rem, 2.2vw, 1.8rem); line-height: 1; color: var(--red); font-weight: 850; letter-spacing: -.04em; }
-    .node-people { width: 34%; aspect-ratio: 1; left: 33%; top: 0; font-size: clamp(1rem, 1.7vw, 1.5rem); }
-    .node-god { width: 38%; aspect-ratio: 1; right: 0; top: 34%; font-size: clamp(1rem, 1.7vw, 1.5rem); border-color: #c08a88; }
-    .node-change { width: 42%; aspect-ratio: 1; left: 0; bottom: 2%; font-size: clamp(.98rem, 1.65vw, 1.46rem); color: white; background: var(--red); border-color: var(--red); }
-    .node-change small { color: #ffe7e4; }
-    .hero-art-note { position: absolute; z-index: 3; top: 14%; left: 4%; max-width: 120px; font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .16em; color: #9a8d83; transform: rotate(-8deg); }
-
-    .scripture { background: var(--dark); color: #fff9f4; }
-    .scripture-inner { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(230px, .5fr); gap: clamp(35px, 7vw, 100px); align-items: end; }
-    .scripture .eyebrow { color: #ef8684; }
-    .scripture blockquote { margin: 0; font-size: clamp(1.65rem, 3vw, 3.1rem); line-height: 1.22; letter-spacing: -.045em; font-weight: 520; }
-    .scripture cite { display: block; margin-top: 25px; color: #d0beb6; font-size: .87rem; font-style: normal; letter-spacing: .03em; }
-    .scripture-aside { border-left: 1px solid #74605a; padding-left: 28px; }
-    .scripture-aside p { margin: 0; font-size: clamp(1.1rem, 1.5vw, 1.42rem); line-height: 1.35; }
-    .scripture-aside cite { margin-top: 18px; }
-
-    .direction-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .direction-card { min-height: 455px; display: flex; flex-direction: column; padding: clamp(28px, 3.4vw, 48px); border: 1px solid var(--line); background: var(--white); position: relative; overflow: hidden; }
-    .direction-card::after { content: ""; width: 255px; height: 255px; border: 1px solid #e3d9d2; border-radius: 50%; position: absolute; right: -80px; bottom: -110px; box-shadow: 0 0 0 36px rgba(226,217,210,.23), 0 0 0 80px rgba(226,217,210,.12); }
-    .direction-card-red { background: var(--red); color: white; border-color: var(--red); }
-    .direction-card-red::after { border-color: rgba(255,255,255,.33); box-shadow: 0 0 0 36px rgba(255,255,255,.08), 0 0 0 80px rgba(255,255,255,.05); }
-    .direction-number { font-size: .82rem; font-weight: 800; letter-spacing: .16em; }
-    .direction-card h3 { position: relative; z-index: 1; max-width: 420px; margin: auto 0 20px; font-size: clamp(2rem, 3.5vw, 3.55rem); line-height: 1.02; letter-spacing: -.06em; }
-    .direction-card p { position: relative; z-index: 1; max-width: 470px; margin: 0; font-size: 1.05rem; }
-    .direction-card-red p { color: #ffe7e3; }
-    .direction-footnote { margin: 25px 0 0; color: var(--muted); font-size: .92rem; }
-
-    .people-section { background: #ece8e3; }
-    .people-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .people-card { min-height: 320px; background: var(--paper); border-top: 4px solid var(--ink); padding: 28px; display: flex; flex-direction: column; }
-    .people-card:last-child { border-top-color: var(--red); }
-    .people-card .card-top { color: var(--red); font-size: .75rem; font-weight: 850; text-transform: uppercase; letter-spacing: .16em; }
-    .people-card h3 { margin: 50px 0 12px; font-size: clamp(1.65rem, 2.35vw, 2.45rem); line-height: 1.04; letter-spacing: -.05em; }
-    .people-card p { margin: auto 0 0; color: var(--muted); font-size: .96rem; }
-    .mentor-band { margin-top: 16px; display: flex; justify-content: space-between; gap: 25px; align-items: center; background: var(--dark); color: white; padding: 25px 30px; }
-    .mentor-band strong { font-size: 1.08rem; }
-    .mentor-band p { max-width: 650px; margin: 0; color: #e2d8d2; font-size: .95rem; }
-
-    .action-intro { max-width: 700px; margin: -10px 0 34px; color: var(--muted); font-size: 1.06rem; }
-    .actions-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-    .action-card { min-height: 230px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 27px; background: var(--white); display: flex; flex-direction: column; }
-    .action-card .num { color: var(--red); font-size: .78rem; font-weight: 850; letter-spacing: .16em; }
-    .action-card h3 { margin: 36px 0 8px; font-size: 1.45rem; letter-spacing: -.04em; line-height: 1.13; }
-    .action-card p { margin: 0; color: var(--muted); font-size: .93rem; }
-    .action-card-feature { grid-column: span 2; background: var(--red-soft); }
-    .action-card-feature h3 { font-size: clamp(1.45rem, 2.4vw, 2.25rem); }
-    .relation-flow { margin-top: 54px; padding: 32px 0 0; border-top: 1px solid var(--line); }
-    .relation-flow h3 { margin: 0 0 25px; font-size: 1.35rem; letter-spacing: -.04em; }
-    .flow-list { list-style: none; margin: 0; padding: 0; display: flex; gap: 0; }
-    .flow-list li { flex: 1; padding: 0 12px 0 0; display: flex; gap: 12px; align-items: center; color: var(--muted); font-size: .91rem; font-weight: 700; }
-    .flow-list li::after { content: "→"; color: var(--red); margin-left: auto; font-size: 1.5rem; font-weight: 400; }
-    .flow-list li:last-child::after { display: none; }
-
-    .rhythm-section { background: #f0eae5; }
-    .rhythm-intro { max-width: 800px; margin: -12px 0 40px; font-size: 1.1rem; color: var(--muted); }
-    .year-board { background: var(--white); border: 1px solid #d8cec6; padding: clamp(24px, 3vw, 38px); }
-    .board-label { margin: 0 0 26px; color: var(--red); font-size: .76rem; font-weight: 850; letter-spacing: .17em; text-transform: uppercase; }
-    .track { display: grid; grid-template-columns: minmax(150px, 230px) 1fr auto; gap: 18px; align-items: center; margin-bottom: 20px; }
-    .track-name { font-size: .95rem; font-weight: 700; line-height: 1.2; }
-    .track-line { height: 8px; border-radius: 100px; position: relative; background: #2b2523; }
-    .track-line::before, .track-line::after { content: ""; position: absolute; width: 12px; height: 12px; top: -2px; border-radius: 50%; background: inherit; }
-    .track-line::before { left: 0; }
-    .track-line::after { right: 0; }
-    .track:nth-of-type(2) .track-line { background: #735e55; }
-    .track:nth-of-type(3) .track-line { background: var(--red); }
-    .track-year { color: var(--muted); font-size: .8rem; font-weight: 750; white-space: nowrap; }
-    .quarter-title { margin: 48px 0 19px; padding-top: 29px; border-top: 1px solid var(--line); font-size: .78rem; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
-    .quarters { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-    .quarter { min-height: 182px; border-top: 3px solid #d8c9c2; padding: 19px 13px 0 0; }
-    .quarter:first-child { border-top-color: var(--red); }
-    .quarter .roman { display: block; margin-bottom: 30px; color: var(--red); font-weight: 850; font-size: .8rem; }
-    .quarter h3 { margin: 0 0 6px; font-size: 1.3rem; letter-spacing: -.04em; line-height: 1.1; }
-    .quarter p { margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.35; }
-    .board-note { margin: 21px 0 0; color: var(--muted); font-size: .87rem; }
-    .checkpoints { margin-top: 47px; padding-top: 33px; border-top: 1px solid var(--line); }
-    .checkpoints-head { display: flex; justify-content: space-between; align-items: baseline; gap: 30px; margin-bottom: 25px; }
-    .checkpoints-head h3 { margin: 0; font-size: clamp(1.5rem, 2.4vw, 2.3rem); line-height: 1.05; letter-spacing: -.05em; }
-    .checkpoints-head p { max-width: 420px; margin: 0; color: var(--muted); font-size: .9rem; }
-    .checkpoint-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin: 0; padding: 0; list-style: none; }
-    .checkpoint-list li { position: relative; padding-top: 20px; border-top: 2px solid #cdbbb4; }
-    .checkpoint-list li::before { content: ""; position: absolute; left: 0; top: -8px; width: 12px; height: 12px; border-radius: 50%; background: var(--red); border: 2px solid var(--white); box-shadow: 0 0 0 1px var(--red); }
-    .checkpoint-list .point-number { display: block; color: var(--red); font-size: .72rem; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
-    .checkpoint-list h4 { margin: 13px 0 8px; font-size: clamp(1.25rem, 1.7vw, 1.65rem); line-height: 1.08; letter-spacing: -.045em; }
-    .checkpoint-list p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.45; }
-    .checkpoint-result { margin: 30px 0 0; padding: 21px 24px; background: var(--red-soft); border-left: 4px solid var(--red); font-size: .94rem; }
-    .checkpoint-result strong { color: var(--red-dark); }
-
-    .metrics { background: var(--dark); color: white; }
-    .metrics .section-head p:last-child { color: #cdbdb5; }
-    .metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #75625a; }
-    .metric { padding: 31px 28px 10px 0; border-right: 1px solid #75625a; }
-    .metric + .metric { padding-left: 28px; }
-    .metric:last-child { border-right: 0; }
-    .metric strong { display: block; color: #f08683; font-size: clamp(3rem, 6vw, 6rem); line-height: .95; letter-spacing: -.07em; font-weight: 750; }
-    .metric p { max-width: 320px; margin: 16px 0 0; font-size: .95rem; color: #eee0d8; }
-    .metric-note { margin: 34px 0 0; color: #cdbdb5; font-size: .86rem; }
-
-    .cta { padding-block: clamp(90px, 11vw, 160px); }
-    .cta-inner { display: grid; grid-template-columns: 1fr minmax(270px, .55fr); gap: 35px; align-items: end; }
-    .cta h2 { max-width: 950px; margin: 0; font-size: clamp(3.3rem, 7vw, 7.8rem); line-height: .93; letter-spacing: -.075em; }
-    .cta h2 span { color: var(--red); }
-    .cta-side p { margin: 0 0 27px; font-size: 1.13rem; line-height: 1.45; }
-    .cta-side .button { width: fit-content; }
-    .site-footer { border-top: 1px solid var(--line); padding-block: 28px 38px; }
-    .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; align-items: center; color: var(--muted); font-size: .83rem; }
-    .footer-inner strong { color: var(--ink); }
-
-    @media (max-width: 980px) {
-      .wrap { width: min(var(--max), calc(100% - 48px)); }
-      .hero-inner { grid-template-columns: 1fr .85fr; min-height: 650px; }
-      .hero h1 { font-size: clamp(4rem, 8.5vw, 6.5rem); }
-      .node-people, .node-god, .node-change { font-size: 1rem; }
-      .people-card { min-height: 355px; }
-    }
-    @media (max-width: 760px) {
-      .header-inner { min-height: 72px; }
-      .main-nav { display: none; }
-      .section-head { grid-template-columns: 1fr; gap: 18px; }
-      .hero-inner { display: flex; flex-direction: column; align-items: stretch; padding-block: 66px 72px; min-height: 0; }
-      .hero h1 { font-size: clamp(4.3rem, 15vw, 7rem); }
-      .hero-visual { width: min(100%, 530px); margin: 35px auto 0; }
-      .node-people, .node-god, .node-change { font-size: clamp(1rem, 3.3vw, 1.5rem); }
-      .scripture-inner, .cta-inner { grid-template-columns: 1fr; }
-      .scripture-aside { margin-top: 15px; }
-      .direction-grid { grid-template-columns: 1fr; }
-      .direction-card { min-height: 365px; }
-      .people-grid { grid-template-columns: 1fr; }
-      .people-card { min-height: 215px; }
-      .people-card h3 { margin-top: 30px; }
-      .mentor-band { align-items: flex-start; flex-direction: column; }
-      .actions-grid { grid-template-columns: repeat(2, 1fr); }
-      .action-card-feature { grid-column: span 2; }
-      .flow-list { flex-wrap: wrap; row-gap: 12px; }
-      .flow-list li { min-width: 31%; flex: none; }
-      .checkpoints-head { display: block; }
-      .checkpoints-head p { margin-top: 10px; }
-      .metric-grid { grid-template-columns: 1fr; }
-      .metric, .metric + .metric { padding: 24px 0; border-right: 0; border-bottom: 1px solid #75625a; }
-      .metric:last-child { border-bottom: 0; }
-    }
-    @media (max-width: 540px) {
-      .wrap { width: calc(100% - 36px); }
-      .brand { gap: 10px; }
-      .brand-logo { width: 98px; }
-      .brand-title { padding-left: 10px; font-size: .92rem; }
-      .section { padding-block: 72px; }
-      .eyebrow { font-size: .69rem; }
-      .hero-inner { padding-top: 54px; }
-      .hero h1 { font-size: clamp(3.65rem, 16vw, 5.2rem); }
-      .hero-lead { margin-top: 28px; }
-      .hero-visual { margin-top: 30px; }
-      .hero-art-note { display: none; }
-      .node-people, .node-god, .node-change { font-size: clamp(.75rem, 3vw, 1rem); }
-      .diagram-node small { margin-bottom: 4px; font-size: clamp(1.08rem, 5.2vw, 1.4rem); }
-      .direction-card { min-height: 325px; }
-      .actions-grid { grid-template-columns: 1fr; }
-      .action-card-feature { grid-column: auto; }
-      .action-card { min-height: 195px; }
-      .flow-list { display: block; }
-      .flow-list li { justify-content: space-between; min-width: 0; padding: 5px 0; }
-      .flow-list li::after { transform: rotate(90deg); margin-right: 8px; }
-      .track { grid-template-columns: 1fr auto; gap: 7px 12px; margin-bottom: 19px; }
-      .track-line { grid-column: 1 / -1; grid-row: 2; }
-      .track-year { grid-column: 2; grid-row: 1; }
-      .quarter-title { margin-top: 35px; }
-      .quarters { grid-template-columns: repeat(2, 1fr); gap: 8px 16px; }
-      .quarter { min-height: 150px; }
-      .quarter .roman { margin-bottom: 18px; }
-      .checkpoint-list { grid-template-columns: 1fr; gap: 22px; }
-      .checkpoint-list li { padding-top: 16px; }
-      .cta h2 { font-size: clamp(3.3rem, 13vw, 5rem); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .button { transition: none; }
-      .button:hover { transform: none; }
-    }
+    :root{color-scheme:dark;--bg:#0d0d10;--ink:#faf7f8;--muted:#c3b9c0;--red:#ff6979;--line:rgba(255,255,255,.16);--glass:linear-gradient(135deg,rgba(255,255,255,.095),rgba(255,255,255,.025));--max:1180px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:120px}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.6;isolation:isolate}body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 86% 13%,rgba(168,29,55,.19),transparent 47%),radial-gradient(ellipse at 7% 84%,rgba(137,20,42,.12),transparent 45%)}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}button,a{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #ffabb5;outline-offset:5px}::selection{background:#b62943;color:white}.wrap{width:min(var(--max),calc(100% - 64px));margin-inline:auto}.section{padding-block:100px}.eyebrow{display:block;margin:0 0 18px;font-size:.74rem;text-transform:uppercase;letter-spacing:.16em;font-weight:750;color:#ff98a5}.section-head{display:grid;grid-template-columns:1fr .65fr;align-items:end;gap:70px;margin-bottom:40px}.section-head h2,.section-title{margin:0;font-size:clamp(2.3rem,4.5vw,4rem);line-height:1.09;letter-spacing:-.055em;font-weight:650}.section-head>p{margin:0;color:var(--muted);font-size:1.04rem}.muted{color:var(--muted)}.accent{color:var(--red)}.glass{position:relative;background:var(--glass);border:1px solid var(--line);border-radius:26px;box-shadow:0 20px 55px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.1);-webkit-backdrop-filter:blur(22px) saturate(130%);backdrop-filter:blur(22px) saturate(130%)}.glass::before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(400px circle at var(--x,0%) var(--y,0%),rgba(255,255,255,.085),transparent 65%)}.icon{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}.skip{position:fixed;top:-90px;left:20px;z-index:100;padding:12px 20px;background:white;color:#171317;border-radius:12px}.skip:focus{top:20px}.svg-library{position:absolute;width:0;height:0;overflow:hidden}
+    .header{position:sticky;top:12px;z-index:30;width:min(1280px,calc(100% - 32px));margin:12px auto 0;background:rgba(29,24,29,.8);border:1px solid rgba(255,255,255,.21);border-radius:24px;box-shadow:0 12px 40px #0004,inset 0 1px 0 #ffffff1a;-webkit-backdrop-filter:blur(24px) saturate(150%);backdrop-filter:blur(24px) saturate(150%)}.header-inner{min-height:80px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 22px}.brand{display:flex;align-items:center;gap:18px}.brand-logo{width:115px;height:auto;flex:none}.brand-title{border-left:1px solid #ffffff40;padding-left:18px;font-size:.87rem;font-weight:650;line-height:1.3}.nav{display:flex;gap:8px}.nav a{padding:10px 17px;border:1px solid #ffffff25;border-radius:100px;background:#ffffff0c;font-size:.87rem;font-weight:600;transition:background .2s,border-color .2s}.nav a:hover,.nav a[aria-current="location"]{background:#ab294c55;border-color:#ff9fa66b}.nav .nav-cta{background:linear-gradient(145deg,#bd3048,#881c32);border-color:#ffb2bb40}
+    .hero{overflow:hidden;position:relative}.hero-inner{display:grid;grid-template-columns:1.2fr .85fr;align-items:center;gap:24px;padding-block:94px 52px}.hero .eyebrow{display:flex;align-items:center;gap:10px}.status-dot{height:6px;width:6px;border-radius:50%;background:var(--red);box-shadow:0 0 14px #ff6b7990}.hero h1{font-size:clamp(3.25rem,5.2vw,5rem);font-weight:680;line-height:1.04;letter-spacing:-.062em;margin:0}.hero h1 span{display:block}.hero h1 .accent{margin-top:3px}.hero-subtitle{font-size:1.32rem;line-height:1.45;font-weight:600;letter-spacing:-.025em;margin:27px 0 13px}.hero-lead{max-width:560px;color:var(--muted);font-size:1.05rem;line-height:1.65;margin:0}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.button{min-height:52px;display:inline-flex;align-items:center;justify-content:center;gap:18px;padding:14px 23px;border:1px solid #ffffff30;border-radius:100px;font-size:.94rem;font-weight:650;cursor:pointer;background:#ffffff0b;box-shadow:inset 0 1px 0 #ffffff12;transition:transform .2s,background .2s,box-shadow .2s}.button:hover{transform:translateY(-2px);background:#ffffff18}.button-primary{background:linear-gradient(145deg,#c3334d,#902039);border-color:#ff9daa5c;box-shadow:0 10px 35px #bd25452b,inset 0 1px 0 #ffffff25}.button-primary:hover{background:linear-gradient(145deg,#d6425b,#a52642);box-shadow:0 10px 35px #bd254547}.button .icon{width:18px;height:18px}.hero-art{height:505px;position:relative;isolation:isolate}.hero-art::before{content:"";position:absolute;inset:6% -12%;z-index:-1;background:radial-gradient(ellipse,#b82f4540,transparent 67%)}.globe{position:absolute;width:108%;height:auto;left:-1%;top:2%;color:#c88195}.orbit-label{position:absolute;top:1%;left:34%;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:#b99fa9;transform:rotate(-8deg)}.art-node{position:absolute;width:180px;padding:22px 24px;background:linear-gradient(135deg,rgba(119,83,98,.42),rgba(29,26,35,.82));border:1px solid #ffffff40;border-radius:24px;box-shadow:0 18px 50px #0004,inset 0 1px 0 #ffffff26;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}.art-node .node-top{display:flex;justify-content:space-between;align-items:center;color:#ffabb7;margin-bottom:10px;font-size:.7rem;letter-spacing:.12em}.art-node strong{font-size:1.45rem;letter-spacing:-.035em;font-weight:600}.art-node p{margin:5px 0 0;color:#d8c6cf;font-size:.82rem}.node-heart{left:5%;top:12%;transform:rotate(-6deg)}.node-head{right:-2%;top:38%;transform:rotate(5deg)}.node-hands{left:9%;bottom:6%;width:208px;transform:rotate(-3deg);background:linear-gradient(145deg,rgba(184,47,75,.74),rgba(78,24,41,.9))}.art-caption{position:absolute;right:0;bottom:8%;width:126px;font-size:.72rem;line-height:1.5;color:#bdaab2}.course-meta{display:flex;align-items:center;gap:0;border-block:1px solid var(--line);padding:22px 0;margin-bottom:20px}.meta-item{flex:1;display:flex;align-items:center;gap:14px;border-right:1px solid var(--line);padding:0 24px}.meta-item:first-child{padding-left:0}.meta-item:last-child{border:0;padding-right:0}.meta-item .icon{color:#ff96a4}.meta-item strong{display:block;font-size:.93rem;font-weight:650}.meta-item small{display:block;color:var(--muted);font-size:.76rem}
+    .fears-section{padding-top:86px}.fear-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.fear{padding:26px 28px;min-height:150px}.fear .number{display:block;font-size:.7rem;letter-spacing:.13em;color:#a996a2;margin-bottom:15px}.fear p{font-size:1.13rem;line-height:1.45;font-weight:550;letter-spacing:-.025em;margin:0}.fear:nth-child(3){background:linear-gradient(140deg,#78223844,#ffffff06)}.reassurance{display:flex;gap:24px;align-items:center;padding-top:28px}.reassurance .line{width:54px;height:1px;background:var(--red);flex:none}.reassurance p{margin:0;color:var(--muted);max-width:730px}.reassurance strong{color:var(--ink);font-weight:600}
+    .foundation{padding-block:70px 88px;border-block:1px solid var(--line);position:relative;background:radial-gradient(ellipse at 60% 70%,#a6294026,transparent 65%)}.foundation-inner{display:grid;grid-template-columns:.6fr 1.4fr;gap:80px;align-items:start}.dei-label{font-size:clamp(2.5rem,4.2vw,3.8rem);line-height:1;letter-spacing:-.055em;margin:0 0 12px;font-weight:550}.dei-translation{margin:0;color:var(--muted);font-size:1rem}.foundation h2{font-size:clamp(2.1rem,3.5vw,3.3rem);line-height:1.13;letter-spacing:-.045em;font-weight:600;margin:0 0 23px}.foundation-copy>p{max-width:680px;margin:0;color:var(--muted);font-size:1.04rem}.foundation-copy>p+p{margin-top:16px}
+    .approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.approach-card{padding:32px;min-height:310px}.approach-card .big-icon{display:flex;align-items:center;justify-content:center;width:66px;height:66px;border:1px solid #ffffff30;border-radius:21px;background:linear-gradient(145deg,#ffffff13,#ffffff04);box-shadow:inset 0 1px 0 #ffffff1f;margin-bottom:30px;color:#ff95a6}.big-icon .icon{width:29px;height:29px}.approach-card .step{position:absolute;right:28px;top:28px;font-size:.72rem;color:#a68f9b;letter-spacing:.12em}.approach-card h3{font-size:1.65rem;line-height:1.2;letter-spacing:-.04em;margin:0 0 12px;font-weight:600}.approach-card h3 span{display:block;color:#ff94a3;font-size:1rem;letter-spacing:0;margin-top:8px}.approach-card p{color:var(--muted);margin:0;font-size:.95rem}.approach-card:last-child{background:linear-gradient(145deg,#96294248,#ffffff04)}
+    .program-section{border-block:1px solid var(--line);background:radial-gradient(ellipse at 0% 80%,#a222371a,transparent 65%)}.program-layout{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px;align-items:start}.program-intro{position:sticky;top:145px}.program-intro h2{font-size:clamp(2.5rem,4.5vw,4rem);line-height:1.07;letter-spacing:-.055em;margin:0 0 25px;font-weight:650}.program-intro>p{color:var(--muted);max-width:340px;margin:0}.program-note{margin-top:30px;display:inline-flex;gap:10px;align-items:center;color:#ff9baa;font-size:.8rem}.program-note .icon{width:18px;height:18px}.days{display:flex;flex-direction:column;gap:12px}.day{overflow:hidden;border-radius:23px}.day summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:55px 1fr 32px;align-items:center;gap:20px;padding:25px 26px;position:relative}.day summary::-webkit-details-marker{display:none}.day-number{display:flex;align-items:center;justify-content:center;flex-direction:column;width:52px;height:58px;border-radius:15px;border:1px solid #ffffff25;background:#ffffff07;color:#ff9aa9;font-size:1.5rem;line-height:1.2;font-weight:600}.day-number small{font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-top:3px}.day-title{font-size:1.15rem;font-weight:600;letter-spacing:-.025em;line-height:1.35}.day-toggle{position:relative;height:30px;width:30px;border:1px solid #ffffff2b;border-radius:50%}.day-toggle::before,.day-toggle::after{content:"";position:absolute;left:9px;top:14px;width:10px;height:1px;background:#d9c8d0}.day-toggle::after{transform:rotate(90deg);transition:transform .2s}.day[open] .day-toggle::after{transform:rotate(0)}.day[open]{border-color:#ff889746;background:linear-gradient(145deg,#9a2b4138,#ffffff04)}.day-body{padding:0 26px 26px 101px;color:var(--muted);font-size:.94rem}.day-body p{margin:0}.day-body ul{margin:16px 0 0;padding-left:18px}.day-body li{padding-left:4px;margin:5px 0}.day-body li::marker{color:var(--red)}
+    .outcomes{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}.outcome{display:flex;gap:20px;padding:23px 0;border-top:1px solid var(--line)}.check{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#b52e452c;border:1px solid #ef668333;color:#ff9aa7;flex:none;margin-top:2px}.check .icon{width:16px;height:16px}.outcome h3{font-size:1.03rem;font-weight:600;margin:0 0 6px}.outcome p{color:var(--muted);margin:0;font-size:.92rem}.support-band{display:flex;align-items:center;justify-content:space-between;gap:24px;border:1px solid #ff87963a;border-radius:20px;background:linear-gradient(100deg,#a32a4030,#ffffff04);padding:24px 30px;margin-top:25px}.support-band strong{font-size:1.18rem;letter-spacing:-.025em;font-weight:600}.support-band p{margin:0;color:var(--muted);font-size:.92rem;max-width:430px}
+    .audience-section{padding-top:45px}.audience-layout{display:grid;grid-template-columns:.83fr 1.17fr;gap:80px}.audience-intro>p:last-child{color:var(--muted);max-width:350px;margin:24px 0 0}.audience-list{list-style:none;padding:0;margin:0}.audience-list li{display:flex;align-items:flex-start;gap:23px;padding:20px 0;border-bottom:1px solid var(--line);font-size:1.1rem;line-height:1.5}.audience-list li:first-child{padding-top:0}.audience-list span{color:#ff8d9f;font-size:.75rem;margin-top:5px;letter-spacing:.1em}
+    .vision{border-block:1px solid var(--line);background:radial-gradient(ellipse at 80% 50%,#981e3426,transparent 70%)}.scripture{max-width:860px;margin:0 0 45px}.scripture blockquote{font-size:clamp(1.4rem,2.5vw,2.2rem);line-height:1.45;letter-spacing:-.025em;margin:0 0 14px}.scripture cite{color:#ff95a7;font-size:.83rem;font-style:normal}.vision-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}.vision-item{border-top:1px solid #ffffff35;padding-top:25px}.vision-item .scale{display:flex;align-items:center;gap:10px;color:#ff92a4;font-size:.74rem;letter-spacing:.08em;margin-bottom:18px}.scale-dot{height:10px;width:10px;border:1px solid #ff9aad;border-radius:50%;box-shadow:0 0 0 4px #ff9aad0e}.vision-item:nth-child(2) .scale-dot{box-shadow:0 0 0 4px #ff9aad12,0 0 0 8px #ff9aad0a}.vision-item:nth-child(3) .scale-dot{box-shadow:0 0 0 4px #ff9aad14,0 0 0 8px #ff9aad0e,0 0 0 12px #ff9aad08}.vision-item h3{font-size:1.45rem;letter-spacing:-.035em;font-weight:600;margin:0 0 10px}.vision-item p{margin:0;color:var(--muted);font-size:.95rem}
+    .paths{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.path{padding:26px 19px;min-height:210px;display:flex;flex-direction:column;align-items:flex-start}.path>.icon{color:#ff99aa;margin-bottom:28px;width:26px;height:26px}.path h3{margin:0;font-size:1.02rem;line-height:1.4;font-weight:550;letter-spacing:-.02em}.path small{display:block;margin-top:9px;color:var(--muted);font-size:.77rem;line-height:1.5}
+    .join-section{padding-top:10px}.join-card{padding:62px;overflow:hidden;background:radial-gradient(ellipse at 10% 0%,#d4466445,transparent 70%),linear-gradient(120deg,#63203155,#ffffff04);border-color:#ff9bac42}.join-card::after{content:"";position:absolute;width:410px;height:410px;border:1px solid #ffffff12;border-radius:50%;right:-140px;top:-160px;pointer-events:none;box-shadow:0 0 0 65px #ffffff03,0 0 0 130px #ffffff02}.join-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:end;position:relative;z-index:1}.join-card h2{font-size:clamp(2.7rem,4.6vw,4.4rem);line-height:1.07;letter-spacing:-.055em;font-weight:600;margin:0}.join-card h2 span{color:#ff9daa}.join-side p{margin:0 0 25px;color:#e3d0d8;font-size:1rem}.final-verse{max-width:760px;text-align:center;margin:44px auto 0}.final-verse blockquote{font-size:1.2rem;line-height:1.6;letter-spacing:-.015em;margin:0 0 10px;color:#d7c6ce}.final-verse cite{font-size:.76rem;color:#ad929f;font-style:normal}.footer{border-top:1px solid var(--line);padding:35px 0 30px;margin-top:10px}.footer-top{display:flex;justify-content:space-between;align-items:center;gap:24px}.footer-brand{display:flex;align-items:center;gap:22px}.footer .brand-logo{width:85px}.footer strong{font-size:.88rem;font-weight:600}.back-top{display:flex;gap:8px;align-items:center;font-size:.79rem;color:var(--muted)}.back-top .icon{width:16px;height:16px;transform:rotate(-90deg)}.footer-legal{font-size:.77rem;color:#ac9da6;line-height:1.6;margin-top:25px;max-width:710px}
+    dialog{width:min(540px,calc(100% - 32px));border:1px solid #ffffff36;border-radius:26px;background:linear-gradient(135deg,#382832,#17151c);color:var(--ink);padding:38px;box-shadow:0 30px 100px #0009}dialog::backdrop{background:#08080bc4;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}.dialog-close{position:absolute;top:12px;right:14px;background:#ffffff08;border:1px solid #ffffff20;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:1.3rem;line-height:1}.dialog-title{font-size:1.9rem;letter-spacing:-.04em;line-height:1.15;margin:0 0 16px;font-weight:600}.dialog-copy{color:var(--muted);font-size:.94rem}.message{background:#ffffff06;border:1px solid #ffffff17;border-radius:15px;padding:18px;font-size:.9rem;color:#eee1e7;line-height:1.65;user-select:text}.dialog-actions{margin-top:22px}.copy-status{min-height:24px;color:#ffacb7;font-size:.8rem;margin:10px 0 0}
+    @media(min-width:1500px){.hero-inner{padding-top:110px}}@media(max-width:1100px){.nav a{padding:10px 13px}.hero h1{font-size:clamp(3rem,5.5vw,4.2rem)}.hero-art{height:470px}.art-node{width:158px;padding:18px 20px}.node-hands{width:190px}.node-head{right:0}.art-caption{right:0;width:106px;font-size:.68rem}.section-head{gap:35px}.paths{grid-template-columns:repeat(3,1fr)}.path{min-height:185px}.program-layout{gap:40px}.join-card{padding:45px}.join-inner{gap:40px}.meta-item{padding:0 15px;gap:10px}.meta-item strong{font-size:.85rem}}
+    @media(max-width:850px){.header-inner{gap:15px}.brand-logo{width:94px}.brand-title{font-size:.76rem;padding-left:12px}.brand{gap:12px}.nav a{font-size:.78rem;padding:10px 12px}.nav a:first-child{display:none}.hero-inner{grid-template-columns:1fr 1fr;padding-block:70px 40px;gap:10px}.hero h1{font-size:clamp(2.7rem,5.8vw,4rem)}.hero-subtitle{font-size:1.1rem}.hero-lead{font-size:.93rem}.hero-art{height:420px}.art-node{width:142px;padding:17px}.art-node strong{font-size:1.18rem}.art-node p{font-size:.73rem}.node-hands{width:170px}.node-heart{left:0}.node-head{right:-4%;top:37%}.art-caption{bottom:2%;right:0}.globe{top:8%}.hero-actions{gap:10px}.button{font-size:.84rem;padding:13px 18px;gap:10px}.course-meta{flex-wrap:wrap;gap:23px 0}.meta-item{flex:0 0 50%;padding:0 20px}.meta-item:nth-child(odd){padding-left:0}.meta-item:nth-child(even){border:0}.section{padding-block:72px}.section-head{grid-template-columns:1fr;gap:20px;margin-bottom:30px}.section-head>p{max-width:550px}.fear-grid{grid-template-columns:repeat(2,1fr)}.foundation-inner{gap:35px;grid-template-columns:.65fr 1fr}.approach-grid{gap:12px}.approach-card{padding:25px;min-height:320px}.approach-card h3{font-size:1.45rem}.approach-card p{font-size:.89rem}.program-layout{grid-template-columns:1fr;gap:35px}.program-intro{position:static}.program-intro>p{max-width:500px}.program-note{margin-top:15px}.audience-layout{gap:35px}.vision-grid{gap:20px}.vision-item h3{font-size:1.25rem}.vision-item p{font-size:.9rem}.support-band{align-items:flex-start;flex-direction:column;gap:10px}.join-inner{grid-template-columns:1fr;gap:25px}.join-side{max-width:520px}.outcomes{gap:0 25px}.join-section{padding-top:0}.audience-section{padding-top:10px}.footer-legal{max-width:600px}}
+    @media(max-width:600px){html{scroll-padding-top:100px}.wrap{width:calc(100% - 40px)}.header{top:8px;width:calc(100% - 20px);margin-top:8px;border-radius:19px}.header-inner{min-height:67px;padding:12px 14px;gap:10px}.brand-logo{width:83px}.brand-title{font-size:.7rem;max-width:125px}.nav a{display:none}.nav .nav-cta{display:flex;padding:9px 12px;font-size:.74rem;white-space:nowrap}.hero-inner{grid-template-columns:1fr;padding-block:54px 25px}.hero h1{font-size:clamp(2.65rem,9.8vw,3.7rem);line-height:1.07}.hero .eyebrow{font-size:.65rem;letter-spacing:.12em;margin-bottom:22px}.hero-subtitle{font-size:1.14rem;margin-top:25px}.hero-lead{font-size:.97rem}.hero-actions{margin-top:25px}.hero-actions .button{padding:13px 17px;font-size:.84rem;min-height:50px}.hero-art{height:365px;max-width:380px;width:100%;margin:20px auto 0}.globe{width:100%;left:0;top:0}.art-node{width:150px;padding:18px}.node-heart{left:3%;top:8%}.node-head{right:1%;top:35%}.node-hands{left:9%;bottom:5%;width:178px}.art-caption{bottom:3%;right:0;width:104px}.orbit-label{left:44%;top:1%;font-size:.56rem}.course-meta{padding-block:21px;gap:20px 0;margin-bottom:0}.meta-item{gap:10px;padding:0 0 0 14px}.meta-item .icon{height:18px;width:18px}.meta-item strong{font-size:.78rem}.meta-item small{font-size:.67rem}.section{padding-block:60px}.section-head h2,.section-title{font-size:2.5rem}.section-head>p{font-size:.96rem}.eyebrow{font-size:.67rem;margin-bottom:14px}.fear-grid{gap:10px}.fear{padding:20px 18px;min-height:145px;border-radius:21px}.fear .number{margin-bottom:13px;font-size:.62rem}.fear p{font-size:1rem}.reassurance{gap:14px;align-items:flex-start;padding-top:23px}.reassurance .line{width:27px;margin-top:12px}.reassurance p{font-size:.92rem}.foundation-inner{grid-template-columns:1fr;gap:29px}.dei-label{font-size:3rem}.foundation h2{font-size:2.25rem}.foundation-copy>p{font-size:.97rem}.approach-grid{grid-template-columns:1fr}.approach-card{min-height:0;padding:25px 26px 27px}.approach-card .big-icon{width:53px;height:53px;border-radius:17px;margin-bottom:20px}.approach-card h3{font-size:1.6rem}.approach-card p{font-size:.95rem}.program-intro h2{font-size:2.7rem}.program-intro>p{font-size:.95rem}.day summary{padding:21px 17px;grid-template-columns:43px 1fr 26px;gap:14px}.day-number{width:43px;height:50px;font-size:1.3rem}.day-title{font-size:1.03rem}.day-toggle{height:26px;width:26px}.day-toggle::before,.day-toggle::after{left:7px;top:12px}.day-body{padding:0 20px 24px 74px;font-size:.88rem}.outcomes{grid-template-columns:1fr}.outcome{gap:16px;padding-block:22px}.support-band{padding:23px}.support-band strong{font-size:1.12rem}.support-band p{font-size:.9rem}.audience-section{padding-top:0}.audience-layout{grid-template-columns:1fr;gap:30px}.audience-intro>p:last-child{font-size:.95rem}.audience-list li{font-size:1rem;gap:18px;padding-block:19px}.vision-grid{grid-template-columns:1fr;gap:28px}.vision-item h3{font-size:1.4rem}.vision-item p{max-width:420px;font-size:.94rem}.vision-item .scale{margin-bottom:15px}.scripture{margin-bottom:32px}.scripture blockquote{font-size:1.5rem}.paths{grid-template-columns:1fr 1fr;gap:10px}.path{min-height:195px;padding:24px 20px;border-radius:22px}.path:last-child{grid-column:1 / -1;min-height:140px}.path>.icon{margin-bottom:20px}.path h3{font-size:1rem}.path small{font-size:.76rem}.join-section{padding-top:0;padding-bottom:48px}.join-card{padding:34px 26px;border-radius:25px}.join-card h2{font-size:2.75rem}.join-inner{gap:25px}.join-side p{font-size:.95rem}.join-side .button{width:100%;font-size:.89rem;gap:15px;padding-inline:12px}.final-verse{margin-top:33px}.final-verse blockquote{font-size:1.02rem}.footer{padding-block:27px}.footer-top{align-items:flex-start}.footer-brand{align-items:flex-start;gap:15px}.footer .brand-logo{width:75px;margin-top:3px}.footer strong{font-size:.77rem;max-width:130px}.back-top{font-size:.72rem;white-space:nowrap;margin-top:4px}.footer-legal{font-size:.71rem;margin-top:20px}dialog{padding:32px 25px}.dialog-title{font-size:1.75rem}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}.button:hover{transform:none}}
   </style>
 </head>
-<body>
-  <a class="skip-link" href="#main">К основному содержанию</a>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="#top" aria-label="СЦЕХ. Год посещения — наверх">
-        <svg class="brand-logo" viewBox="0 0 250 68" aria-hidden="true" focusable="false">
-          <path fill="#fff" d="M47 13 39 22C32 16 22 16 16 23 9 30 10 41 17 47c6 6 16 6 23 0l8 9c-12 10-29 11-40 1C-3 47-3 25 8 14 19 3 36 3 47 13ZM61 6h13v42h29V6h13v42h7v17h-13v-6H61V6ZM148 6h38v12h-38V6ZM148 47h38v12h-38V47ZM191 6h17l13 17 12-17h17l-21 26 21 27h-17l-12-18-13 18h-17l22-27-22-26Z"/>
-          <path fill="#d74246" d="M135 6h13v20h25v12h-25v21h-13V38h-18V26h18V6Z"/>
-        </svg>
-        <span class="brand-title">Год посещения</span>
+<body id="top">
+  <a class="skip" href="#main">Перейти к содержанию</a>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.7 5.6a5.1 5.1 0 0 0-7.2 0L12 7.1l-1.5-1.5a5.1 5.1 0 0 0-7.2 7.2L12 21l8.7-8.2a5.1 5.1 0 0 0 0-7.2Z"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m16 8-2.5 5.5L8 16l2.5-5.5L16 8Z"/></symbol>
+    <symbol id="i-steps" viewBox="0 0 24 24"><path d="M3 20h6v-6h6V8h6M3 20v-4m18-8V4"/><path d="m16 4 5 0 0 5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6c-3-2-7-2-10-1v14c3-1 7-1 10 1 3-2 7-2 10-1V5c-3-1-7-1-10 1Zm0 0v14"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 20v-3a6 6 0 0 1 12 0v3m1-16a3 3 0 0 1 0 6m3 10v-3a6 6 0 0 0-2.5-4.9"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></symbol>
+    <symbol id="i-pray" viewBox="0 0 24 24"><path d="m3 20 5-4 3-10c.5-2 2-2 2 0v9l-4 7m12-2-5-4-3-10m0 9 4 7M6 3l1 2m11-2-1 2M12 1v2"/></symbol>
+  </defs></svg>
+  <header class="header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="СЦЕХ. Курс подготовки миссионерских команд — наверх">
+        <svg class="brand-logo" viewBox="0 0 250 68" aria-hidden="true" focusable="false"><path fill="#fff" d="M47 13 39 22C32 16 22 16 16 23 9 30 10 41 17 47c6 6 16 6 23 0l8 9c-12 10-29 11-40 1C-3 47-3 25 8 14 19 3 36 3 47 13ZM61 6h13v42h29V6h13v42h7v17h-13v-6H61V6ZM148 6h38v12h-38V6ZM148 47h38v12h-38V47ZM191 6h17l13 17 12-17h17l-21 26 21 27h-17l-12-18-13 18h-17l22-27-22-26Z"/><path fill="#d74246" d="M135 6h13v20h25v12h-25v21h-13V38h-18V26h18V6Z"/></svg>
+        <span class="brand-title">Миссионерский<br>отдел</span>
       </a>
-      <nav class="main-nav" aria-label="Разделы страницы">
-        <a href="#idea">Идея года</a>
-        <a href="#participation">Как участвовать</a>
-        <a href="#rhythm">Ритм года</a>
-      </nav>
+      <nav class="nav" aria-label="Разделы страницы"><a href="#about">О курсе</a><a href="#program">Программа</a><a href="#audience">Для кого</a><a class="nav-cta" href="#join">Участвовать <span aria-hidden="true">↗</span></a></nav>
     </div>
   </header>
-
   <main id="main">
-    <section class="hero" id="top" aria-labelledby="hero-title">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-inner">
-        <div class="hero-copy">
-          <p class="eyebrow">Общее направление для церквей СЦЕХ</p>
-          <h1 id="hero-title"><span>Год</span><span>посещения</span></h1>
-          <p class="hero-lead">Время идти навстречу людям и вместе искать Бога, ожидая преображения личности, семьи, служения и церкви.</p>
-          <p class="hero-formula">Посещаем людей · Ищем Бога · Принимаем преображение</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#participation">Найти свой шаг <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h14M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            <a class="button button-outline" href="#idea">Понять идею года</a>
-          </div>
-        </div>
-        <div class="hero-visual" role="img" aria-label="Схема главной идеи: посещаем людей, ищем Бога, принимаем преображение">
-          <svg class="hero-path" viewBox="0 0 550 570" aria-hidden="true" focusable="false">
-            <path d="M275 97C382 91 475 181 467 296C462 402 384 472 278 475C167 478 89 402 87 301C85 187 169 103 275 97Z"/>
-            <path class="path-red" d="M275 97C382 101 468 187 445 309C427 399 281 470 115 446C86 311 157 156 275 97Z"/>
-            <circle cx="275" cy="97" r="6" fill="#ad2029"/>
-            <circle cx="445" cy="309" r="6" fill="#ad2029"/>
-            <circle cx="115" cy="446" r="6" fill="#ad2029"/>
-          </svg>
-          <span class="hero-art-note">Одно общее движение</span>
-          <div class="diagram-node node-people"><span><small>01</small>Посещаем<br>людей</span></div>
-          <div class="diagram-node node-god"><span><small>02</small>Ищем<br>Бога</span></div>
-          <div class="diagram-node node-change"><span><small>03</small>Принимаем<br>преображение</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="scripture section" aria-labelledby="scripture-title">
-      <div class="wrap scripture-inner">
         <div>
-          <p class="eyebrow" id="scripture-title">Библейское основание</p>
-          <blockquote>«Так будем же заботиться друг о друге, побуждать друг друга к любви и добрым делам. Не будем отказываться от совместных встреч... будем ободрять друг друга и будем ещё ревностнее во всём...»</blockquote>
-          <cite>Евреям 10:24–25</cite>
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Твоё место в Божьей миссии</p>
+          <h1 id="hero-title"><span>Курс подготовки</span><span>миссионерских</span><span class="accent">команд</span></h1>
+          <p class="hero-subtitle">Миссия — не для избранных.<br>Она для тебя.</p>
+          <p class="hero-lead">Чувствуешь, что Бог зовёт тебя к большему, но не знаешь, с чего начать? Пройди путь от первых вопросов до практических шагов — вместе с командой и поддержкой церкви.</p>
+          <div class="hero-actions"><a class="button button-primary" href="#about">Узнать о курсе <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="button" href="#program">Посмотреть программу</a></div>
         </div>
-        <div class="scripture-aside">
-          <p>«Приблизьтесь к Богу, и приблизится к вам»</p>
-          <cite>Иакова 4:8</cite>
+        <div class="hero-art" role="img" aria-label="Путь подготовки миссионерской команды: сердце — сострадание; голова — понимание; руки и ноги — действие.">
+          <svg class="globe" viewBox="0 0 480 500" aria-hidden="true"><defs><radialGradient id="globe-fill" cx=".32" cy=".25" r=".8"><stop stop-color="#b8506f" stop-opacity=".14"/><stop offset=".8" stop-color="#b8506f" stop-opacity=".015"/></radialGradient><linearGradient id="route" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#ffb1bb" stop-opacity=".25"/><stop offset=".5" stop-color="#ff778e"/><stop offset="1" stop-color="#ffb1bb" stop-opacity=".4"/></linearGradient></defs><circle cx="240" cy="243" r="182" fill="url(#globe-fill)" stroke="#de8ba4" stroke-opacity=".22"/><g fill="none" stroke="currentColor" stroke-opacity=".18" stroke-width="1"><ellipse cx="240" cy="243" rx="80" ry="182" transform="rotate(-18 240 243)"/><ellipse cx="240" cy="243" rx="139" ry="182" transform="rotate(-18 240 243)"/><ellipse cx="240" cy="243" rx="182" ry="58" transform="rotate(-18 240 243)"/><ellipse cx="240" cy="243" rx="170" ry="114" transform="rotate(-18 240 243)"/><path d="m183 70 113 346M68 299l344-112"/><circle cx="240" cy="243" r="210" stroke-dasharray="2 9" stroke-opacity=".25"/></g><g fill="#cf849a" fill-opacity=".12" stroke="#cf849a" stroke-opacity=".22" stroke-width="1"><path d="m129 126 47-18 43 16 8 22-18 15-9 35-35 3-6 22-25-8-3-25-19-19 3-26Z"/><path d="m166 224 34-7 20 23 17 30-7 42-21 25-7 35-15-15-3-51-17-35Z"/><path d="m249 121 47-18 27 13 44 1 30 38-19 24-26-3-17 21-25-7-11-29-16 11-15-17-23 8-11-16Z"/><path d="m248 194 40-4 26 24-8 42-25 43-21-21-2-31-21-24Z"/><path d="m350 318 26-13 22 21-7 25-31 2-20-18Z"/></g><path d="M127 133C229 78 405 157 386 261S247 443 149 392" fill="none" stroke="url(#route)" stroke-width="2"/><circle cx="325" cy="140" r="4" fill="#ff8ba0"/><circle cx="330" cy="362" r="4" fill="#ff8ba0"/><circle cx="96" cy="288" r="3" fill="#ff8ba0"/><circle cx="325" cy="140" r="10" fill="none" stroke="#ff8ba0" stroke-opacity=".25"/></svg>
+          <span class="orbit-label">Один путь. Вместе.</span>
+          <div class="art-node node-heart"><div class="node-top"><span>01 / УВИДЕТЬ</span><svg class="icon"><use href="#i-heart"/></svg></div><strong>Сердце</strong><p>Сострадание к людям</p></div>
+          <div class="art-node node-head"><div class="node-top"><span>02 / ПОНЯТЬ</span><svg class="icon"><use href="#i-compass"/></svg></div><strong>Голова</strong><p>Стратегия и подготовка</p></div>
+          <div class="art-node node-hands"><div class="node-top"><span>03 / ПОЙТИ</span><svg class="icon"><use href="#i-steps"/></svg></div><strong>Руки и ноги</strong><p>Практическое действие</p></div>
+          <span class="art-caption">От первого шага —<br>до края земли.</span>
         </div>
       </div>
+      <div class="wrap course-meta" aria-label="Главное о курсе">
+        <div class="meta-item"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><div><strong>5 дней подготовки</strong><small>Пять последовательных шагов</small></div></div>
+        <div class="meta-item"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><div><strong>Библейский фундамент</strong><small>Миссия как Божье дело</small></div></div>
+        <div class="meta-item"><svg class="icon" aria-hidden="true"><use href="#i-compass"/></svg><div><strong>Практические инструменты</strong><small>От понимания к действию</small></div></div>
+        <div class="meta-item"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg><div><strong>Команда и поддержка</strong><small>Этот путь проходят вместе</small></div></div>
+      </div>
     </section>
-
-    <section class="section" id="idea" aria-labelledby="idea-title">
+    <section class="section fears-section" aria-labelledby="fears-title">
       <div class="wrap">
-        <div class="section-head">
-          <div><p class="eyebrow">Суть года</p><h2 id="idea-title">Два направления.<br>Одно сердце.</h2></div>
-          <p>Мы укрепляем отношения с людьми и открываемся действию Бога. Эти движения идут вместе на протяжении всего года.</p>
-        </div>
-        <div class="direction-grid">
-          <article class="direction-card">
-            <span class="direction-number">01 / К людям</span>
-            <h3>Мы посещаем людей</h3>
-            <p>Замечаем человека рядом, заботимся и ободряем. Укрепляем связи внутри общин и между церквями, поддерживаем тех, кто остаётся один, развиваем наставничество.</p>
-          </article>
-          <article class="direction-card direction-card-red">
-            <span class="direction-number">02 / К Богу</span>
-            <h3>Мы ищем Божьего посещения</h3>
-            <p>Через молитву, пост, Писание, уединение и покаяние ищем Бога вместе и открываемся преображению, которое совершает Он.</p>
-          </article>
-        </div>
-        <p class="direction-footnote">Мы не определяем, когда и как действует Бог. Наша часть — приближаться к Нему и быть открытыми Его работе.</p>
+        <div class="section-head"><div><p class="eyebrow">Знакомые вопросы</p><h2 id="fears-title">Хочешь служить.<br>Но что-то останавливает.</h2></div><p>Иногда желание есть, а ясности и смелости для следующего шага не хватает.</p></div>
+        <div class="fear-grid"><article class="glass fear"><span class="number">01 / СТРАХ</span><p>«Это слишком сложно.<br>Я не готов».</p></article><article class="glass fear"><span class="number">02 / СОМНЕНИЕ</span><p>«Миссия — для людей<br>с особым призванием».</p></article><article class="glass fear"><span class="number">03 / НЕИЗВЕСТНОСТЬ</span><p>«Я не знаю языка<br>и культуры».</p></article><article class="glass fear"><span class="number">04 / ЗАНЯТОСТЬ</span><p>«У меня работа,<br>семья и служение».</p></article><article class="glass fear"><span class="number">05 / ОДИНОЧЕСТВО</span><p>«Не хочу идти один.<br>Кто меня поддержит?»</p></article><article class="glass fear"><span class="number">06 / РАЗОЧАРОВАНИЕ</span><p>«Уже пробовал —<br>и не увидел плода».</p></article></div>
+        <div class="reassurance"><span class="line" aria-hidden="true"></span><p><strong>Эти вопросы знакомы многим.</strong> Курс помогает разобраться в них, увидеть своё место в миссии и сделать следующий шаг.</p></div>
       </div>
     </section>
-
-    <section class="people-section section" id="participation" aria-labelledby="participation-title">
-      <div class="wrap">
-        <div class="section-head">
-          <div><p class="eyebrow">Участие на своём уровне</p><h2 id="participation-title">Каждый может<br>быть рядом.</h2></div>
-          <p>Посещения происходят одновременно на разных уровнях. У каждого — свой круг людей и своя мера ответственности.</p>
-        </div>
-        <div class="people-grid">
-          <article class="people-card"><span class="card-top">Человек и община</span><h3>В своём круге</h3><p>Прихожане и служители заботятся о людях рядом: в церкви, семье, среди друзей и соседей.</p></article>
-          <article class="people-card"><span class="card-top">Церкви Союза</span><h3>Между общинами</h3><p>Пасторы и их команды навещают другие церкви, особенно удалённые и одинокие, чтобы поддерживать связь и служение.</p></article>
-          <article class="people-card"><span class="card-top">Братское единство</span><h3>Между союзами</h3><p>Руководители и служители Союза развивают отношения с другими объединениями через встречи, молитву и совместное служение.</p></article>
-        </div>
-        <div class="mentor-band"><strong>Духовное наставничество</strong><p>Пасторы, служители и прихожане укрепляют отношения духовной заботы, чтобы никто не оставался без поддержки и наставления.</p></div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="actions-title">
-      <div class="wrap">
-        <div class="section-head">
-          <div><p class="eyebrow">Как это может выглядеть</p><h2 id="actions-title">Действия года.</h2></div>
-          <p>Это общие направления для церквей и служителей. Выберите то, что относится к вашей роли и людям вокруг вас.</p>
-        </div>
-        <div class="actions-grid">
-          <article class="action-card"><span class="num">01</span><h3>Посети человека</h3><p>Личные встречи с прихожанами, семьями, нуждающимися, друзьями и соседями.</p></article>
-          <article class="action-card"><span class="num">02</span><h3>Церковь посещает церковь</h3><p>Братские и пасторские визиты между общинами Союза.</p></article>
-          <article class="action-card"><span class="num">03</span><h3>Никто не один</h3><p>Внимание и поддержка одиноких и удалённых общин.</p></article>
-          <article class="action-card"><span class="num">04</span><h3>Духовное наставничество</h3><p>Живые отношения между пасторами, служителями, наставниками и прихожанами.</p></article>
-          <article class="action-card"><span class="num">05</span><h3>Дни искания Бога</h3><p>Общие дни молитвы и поста.</p></article>
-          <article class="action-card"><span class="num">06</span><h3>Семья в фокусе</h3><p>Семейная молитва и совместное участие в служении церкви.</p></article>
-          <article class="action-card action-card-feature"><span class="num">07</span><h3>Единство</h3><p>Братские отношения, встречи и совместное служение с другими союзами и содружествами.</p></article>
-        </div>
-        <div class="relation-flow">
-          <h3>Посещение — начало отношений, а не отдельное событие</h3>
-          <ol class="flow-list"><li>Встреча</li><li>Нужда</li><li>Молитва</li><li>Договорённость</li><li>Следующий контакт</li></ol>
-        </div>
-      </div>
-    </section>
-
-    <section class="rhythm-section section" id="rhythm" aria-labelledby="rhythm-title">
-      <div class="wrap">
-        <div class="section-head">
-          <div><p class="eyebrow">Ритм года</p><h2 id="rhythm-title">Все направления<br>идут вместе.</h2></div>
-          <p>Посещения на каждом уровне начинаются с начала года и продолжаются весь год. По кварталам меняется лишь общий акцент.</p>
-        </div>
-        <div class="year-board" aria-label="Схема года: три направления посещений идут весь год, каждый квартал имеет свой акцент">
-          <p class="board-label">Параллельно в течение всего года</p>
-          <div class="track"><span class="track-name">Внутри общин</span><span class="track-line" aria-hidden="true"></span><span class="track-year">весь год</span></div>
-          <div class="track"><span class="track-name">Между церквями Союза</span><span class="track-line" aria-hidden="true"></span><span class="track-year">весь год</span></div>
-          <div class="track"><span class="track-name">Между союзами</span><span class="track-line" aria-hidden="true"></span><span class="track-year">весь год</span></div>
-          <p class="quarter-title">Акценты по кварталам</p>
-          <div class="quarters">
-            <article class="quarter"><span class="roman">I квартал</span><h3>Увидеть и соединить</h3><p>Заметить людей и нужды, укрепить первые связи.</p></article>
-            <article class="quarter"><span class="roman">II квартал</span><h3>Укрепить</h3><p>Углубить отношения в семьях и церквях.</p></article>
-            <article class="quarter"><span class="roman">III квартал</span><h3>Расширить</h3><p>Поддерживать братское единство и сотрудничество.</p></article>
-            <article class="quarter"><span class="roman">IV квартал</span><h3>Закрепить</h3><p>Продолжить начатое и сохранить живые связи.</p></article>
-          </div>
-          <p class="board-note">Квартальный акцент помогает распределять внимание; он не ограничивает время посещений.</p>
-          <div class="checkpoints" aria-labelledby="checkpoints-title">
-            <div class="checkpoints-head">
-              <h3 id="checkpoints-title">Три контрольные точки</h3>
-              <p>На общих встречах Союза сверяем, как меняются участие, забота и отношения между церквями.</p>
-            </div>
-            <ol class="checkpoint-list">
-              <li><span class="point-number">01 / контрольная точка</span><h4>Пасха</h4><p>Первая сверка: что удалось начать в посещениях, заботе о нуждающихся и укреплении связей.</p></li>
-              <li><span class="point-number">02 / контрольная точка</span><h4>Троица</h4><p>Смотрим, как укрепляются семьи, наставничество и поддержка между общинами.</p></li>
-              <li><span class="point-number">03 / контрольная точка</span><h4>Единое богослужение</h4><p>Подводим итоги посещений и видим, как укрепились связи между церквями Союза.</p></li>
-            </ol>
-            <p class="checkpoint-result"><strong>Итоговый ориентир:</strong> ожидаем делегации от большинства церквей на Едином богослужении — как видимый знак укрепившихся связей и братского единства.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="metrics section" aria-labelledby="metrics-title">
-      <div class="wrap">
-        <div class="section-head">
-          <div><p class="eyebrow">Ориентиры года</p><h2 id="metrics-title">Важны люди<br>и отношения.</h2></div>
-          <p>Стратегия смотрит не только на число встреч, но и на то, становятся ли отношения крепче, а забота — постоянной.</p>
-        </div>
-        <div class="metric-grid">
-          <div class="metric"><strong>50%</strong><p>Не менее половины активных членов церквей участвуют в личных посещениях.</p></div>
-          <div class="metric"><strong>Все</strong><p>Каждая церковь Союза получает братский или пасторский визит.</p></div>
-          <div class="metric"><strong>4</strong><p>Общих Дня искания Бога в течение года.</p></div>
-        </div>
-        <p class="metric-note">Это общие ориентиры для церквей Союза, а не личные нормы для каждого человека.</p>
-      </div>
-    </section>
-
-    <section class="cta" aria-labelledby="cta-title">
-      <div class="wrap cta-inner">
-        <div><p class="eyebrow">Общий следующий шаг</p><h2 id="cta-title">Начни с человека <span>рядом.</span></h2></div>
-        <div class="cta-side"><p>Включись в тему года, подумай, кого ты можешь посетить и поддержать. Обсуди своё участие со своим пастором и поделись этой идеей с другими.</p><a class="button button-primary" href="#participation">Посмотреть направления <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h14M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
-      </div>
-    </section>
+    <section class="section foundation" aria-labelledby="foundation-title"><div class="wrap foundation-inner"><div><p class="eyebrow">С чего всё начинается</p><p class="dei-label">Missio Dei</p><p class="dei-translation">Миссия Бога</p></div><div class="foundation-copy"><h2 id="foundation-title">Бог уже действует.<br><span class="accent">Мы присоединяемся.</span></h2><p>Миссия начинается с Божьей любви к людям. Он действует среди народов и приглашает нас участвовать в Его деле.</p><p>Наш путь — услышать Его призыв, понять людей, к которым мы идём, и научиться служить им с уважением к их культуре.</p></div></div></section>
+    <section class="section" id="about" aria-labelledby="about-title"><div class="wrap"><div class="section-head"><div><p class="eyebrow">Подход курса</p><h2 id="about-title">Подготовка сердца,<br>головы и рук.</h2></div><p>Курс помогает перейти от страха к действию, от теории к практике, от одиночества к команде.</p></div><div class="approach-grid">
+      <article class="glass approach-card"><span class="step">01 / ВДОХНОВИТЬ</span><div class="big-icon"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg></div><h3>Сердце<span>Увидеть людей</span></h3><p>Развивать сострадание, искать Бога и разбираться в своём призвании.</p></article>
+      <article class="glass approach-card"><span class="step">02 / ОСНАСТИТЬ</span><div class="big-icon"><svg class="icon" aria-hidden="true"><use href="#i-compass"/></svg></div><h3>Голова<span>Понять путь</span></h3><p>Изучать библейские основания миссии, культуру, стратегию и принципы командной работы.</p></article>
+      <article class="glass approach-card"><span class="step">03 / ОТПРАВИТЬ</span><div class="big-icon"><svg class="icon" aria-hidden="true"><use href="#i-steps"/></svg></div><h3>Руки и ноги<span>Сделать шаг</span></h3><p>Применять инструменты на практике, формировать команду и готовиться к служению.</p></article>
+    </div></div></section>
+    <section class="section program-section" id="program" aria-labelledby="program-title"><div class="wrap program-layout"><div class="program-intro"><p class="eyebrow">Программа курса</p><h2 id="program-title">5 дней.<br>5 шагов<br><span class="accent">к миссии.</span></h2><p>От библейского основания — к пониманию культуры и подготовке команды.</p><div class="program-note"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg>Открой день, чтобы узнать больше</div></div><div class="days">
+      <details class="glass day" open><summary><span class="day-number">01<small>день</small></span><span class="day-title">Библейский фундамент</span><span class="day-toggle" aria-hidden="true"></span></summary><div class="day-body"><p>Missio Dei и Евангелие для всех народов. Как миссия раскрывается в истории Библии — от Авраама до Христа.</p><ul><li>Миссия как суверенное Божье дело.</li><li>Библейское основание: Бытие 12:1–3; Иоанна 5:39.</li></ul></div></details>
+      <details class="glass day"><summary><span class="day-number">02<small>день</small></span><span class="day-title">Божья работа и наше участие</span><span class="day-toggle" aria-hidden="true"></span></summary><div class="day-body"><p>Как соединить внутреннюю готовность, осмысленную стратегию и практическое служение.</p><ul><li>Трилогия миссии: сердце, голова, руки и ноги.</li><li>Миссионерский квадрат: «Идите — расскажите» и «Придите — увидите».</li></ul></div></details>
+      <details class="glass day"><summary><span class="day-number">03<small>день</small></span><span class="day-title">Бог и культура</span><span class="day-toggle" aria-hidden="true"></span></summary><div class="day-body"><p>Основы межкультурной миссии и Церковь для всех народов.</p><ul><li>Миссионерская и миссиональная церковь.</li><li>Церковь, которая отправляет миссионеров и живёт миссией каждый день.</li><li>Уважение к людям и их культурным особенностям.</li></ul></div></details>
+      <details class="glass day"><summary><span class="day-number">04<small>день</small></span><span class="day-title">Понять культуру</span><span class="day-toggle" aria-hidden="true"></span></summary><div class="day-body"><p>Как видеть культуру глубже внешних привычек и передавать Евангелие, сохраняя его смысл.</p><ul><li>«Луковица культуры» Ллойда Кваста: поведение, ценности, верования, мировоззрение.</li><li>Три подхода Пола Хиберта к контекстуализации.</li><li>От монументального мышления — к умножающимся церковным движениям.</li></ul></div></details>
+      <details class="glass day"><summary><span class="day-number">05<small>день</small></span><span class="day-title">Построить мост</span><span class="day-toggle" aria-hidden="true"></span></summary><div class="day-body"><p>Подготовка к культурному шоку и первые практические шаги команды.</p><ul><li>«Из Египта в Ханаан»: адаптация и духовная трансформация.</li><li>Молитвенные обходы и «Бизнес как миссия».</li><li>Поиск «человека мира» и вхождение в новую культуру.</li></ul></div></details>
+    </div></div></section>
+    <section class="section" aria-labelledby="outcomes-title"><div class="wrap"><div class="section-head"><div><p class="eyebrow">Что вы получите</p><h2 id="outcomes-title">От желания —<br>к подготовленному действию.</h2></div><p>Понимание, инструменты и навыки, которые помогают осознанно готовиться к миссионерскому служению.</p></div><div class="outcomes">
+      <article class="outcome"><span class="check"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><div><h3>Ясное понимание миссии</h3><p>Библейские основания Божьего дела и ваше участие в нём.</p></div></article>
+      <article class="outcome"><span class="check"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><div><h3>Умение анализировать культуру</h3><p>Понимание ценностей и мировоззрения за внешними привычками.</p></div></article>
+      <article class="outcome"><span class="check"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><div><h3>Бережное межкультурное служение</h3><p>Передача Евангелия без навязывания своей культуры и смешения веры с язычеством.</p></div></article>
+      <article class="outcome"><span class="check"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><div><h3>Подготовка к культурному шоку</h3><p>Осмысление трудностей адаптации для себя и своей команды.</p></div></article>
+      <article class="outcome"><span class="check"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><div><h3>Принципы церковных движений</h3><p>Созидание живых общин, способных расти и умножаться.</p></div></article>
+      <article class="outcome"><span class="check"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><div><h3>Партнёрство и подотчётность</h3><p>Командная работа и связь с посылающей церковью.</p></div></article>
+    </div><div class="support-band"><strong>Этот путь проходят вместе.</strong><p>Поддержка и партнёрство с другими участниками — важная часть подготовки к миссии.</p></div></div></section>
+    <section class="section audience-section" id="audience" aria-labelledby="audience-title"><div class="wrap audience-layout"><div class="audience-intro"><p class="eyebrow">Для кого этот курс</p><h2 class="section-title" id="audience-title">У каждого<br>есть место<br><span class="accent">в миссии.</span></h2><p>Начать можно с того этапа, на котором вы сейчас находитесь.</p></div><ul class="audience-list"><li><span>01</span>Для прихожан, которые ищут своё призвание.</li><li><span>02</span>Для тех, кто чувствует зов, но пока боится или не знает, с чего начать.</li><li><span>03</span>Для пасторов и лидеров, развивающих новые служения.</li><li><span>04</span>Для будущих миссионеров и их команд.</li><li><span>05</span>Для тех, кто готов поддерживать миссию молитвой и финансами.</li></ul></div></section>
+    <section class="section vision" aria-labelledby="vision-title"><div class="wrap"><div class="section-head"><div><p class="eyebrow">Видение миссионерского отдела СЦЕХ</p><h2 id="vision-title">От человека рядом —<br>до края земли.</h2></div></div><figure class="scripture"><blockquote>«…будете Мне свидетелями в Иерусалиме и во всей Иудее и Самарии и даже до края земли».</blockquote><figcaption><cite>Деяния 1:8</cite></figcaption></figure><div class="vision-grid"><article class="vision-item"><div class="scale"><span class="scale-dot" aria-hidden="true"></span>ЧЕЛОВЕК</div><h3>Личная миссия</h3><p>Помочь человеку определить призвание, дары и способности.</p></article><article class="vision-item"><div class="scale"><span class="scale-dot" aria-hidden="true"></span>ОБЩИНА</div><h3>Поместная миссия</h3><p>Развивать новые служения и направления в общинах.</p></article><article class="vision-item"><div class="scale"><span class="scale-dot" aria-hidden="true"></span>МИР</div><h3>Глобальная миссия</h3><p>Формировать команды и открывать церкви в новых регионах и странах.</p></article></div></div></section>
+    <section class="section" aria-labelledby="paths-title"><div class="wrap"><div class="section-head"><div><p class="eyebrow">После курса</p><h2 id="paths-title">Каким будет<br>твой следующий шаг?</h2></div><p>Курс помогает увидеть возможные пути участия и осознанно выбрать свой.</p></div><div class="paths"><article class="glass path"><svg class="icon" aria-hidden="true"><use href="#i-pray"/></svg><h3>Молитва<br>и пост</h3><small>За людей и миссионерское служение</small></article><article class="glass path"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg><h3>Финансовая<br>поддержка</h3><small>Участие в миссионерских проектах</small></article><article class="glass path"><svg class="icon" aria-hidden="true"><use href="#i-compass"/></svg><h3>Краткосрочная<br>поездка</h3><small>Практическое участие в миссии</small></article><article class="glass path"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg><h3>Долгосрочное<br>служение</h3><small>В новых регионах и странах</small></article><article class="glass path"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg><h3>Команда<br>от вашей церкви</h3><small>Общий путь с поддержкой общины</small></article></div></div></section>
+    <section class="section join-section" id="join" aria-labelledby="join-title"><div class="wrap"><div class="glass join-card"><div class="join-inner"><div><p class="eyebrow">Сделай первый шаг</p><h2 id="join-title">Миссия начинается<br><span>с шага.</span></h2></div><div class="join-side"><p>Присоединяйтесь к курсу подготовки миссионерских команд. Свяжитесь с миссионерским отделом СЦЕХ, чтобы узнать о ближайшем курсе и условиях участия.</p><button class="button button-primary" id="contact-open" type="button">Узнать о ближайшем курсе <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button></div></div></div><figure class="final-verse"><blockquote>«Просите, и дано будет вам; ищите, и найдете;<br>стучитесь, и отворят вам».</blockquote><figcaption><cite>Матфея 7:7–8</cite></figcaption></figure></div></section>
   </main>
-
-  <footer class="site-footer"><div class="wrap footer-inner"><strong>Год посещения · СЦЕХ</strong><span>Посещаем людей · Ищем Бога · Принимаем преображение</span></div></footer>
+  <footer class="footer"><div class="wrap"><div class="footer-top"><div class="footer-brand"><svg class="brand-logo" viewBox="0 0 250 68" role="img" aria-label="СЦЕХ"><path fill="#fff" d="M47 13 39 22C32 16 22 16 16 23 9 30 10 41 17 47c6 6 16 6 23 0l8 9c-12 10-29 11-40 1C-3 47-3 25 8 14 19 3 36 3 47 13ZM61 6h13v42h29V6h13v42h7v17h-13v-6H61V6ZM148 6h38v12h-38V6ZM148 47h38v12h-38V47ZM191 6h17l13 17 12-17h17l-21 26 21 27h-17l-12-18-13 18h-17l22-27-22-26Z"/><path fill="#d74246" d="M135 6h13v20h25v12h-25v21h-13V38h-18V26h18V6Z"/></svg><strong>Миссионерский отдел СЦЕХ</strong></div><a href="#top" class="back-top">Наверх <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div><p class="footer-legal">Централизованная религиозная организация Союз Церквей Евангельских Христиан</p></div></footer>
+  <dialog id="contact-dialog" aria-labelledby="dialog-title"><button class="dialog-close" id="contact-close" type="button" aria-label="Закрыть">×</button><p class="eyebrow">Ближайший курс</p><h2 class="dialog-title" id="dialog-title">Узнайте, как присоединиться.</h2><p class="dialog-copy">Свяжитесь с миссионерским отделом СЦЕХ напрямую или попросите пастора вашей церкви помочь связаться с отделом.</p><p class="dialog-copy">Можно использовать такое сообщение:</p><div class="message" id="contact-message">Здравствуйте! Хочу узнать о ближайшем курсе подготовки миссионерских команд: когда и где он проходит, каковы условия участия и как присоединиться?</div><div class="dialog-actions"><button class="button button-primary" id="copy-message" type="button">Скопировать сообщение <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button><p class="copy-status" id="copy-status" role="status" aria-live="polite"></p></div></dialog>
+  <script>
+    (() => {
+      const dialog = document.getElementById('contact-dialog');
+      const status = document.getElementById('copy-status');
+      document.getElementById('contact-open').addEventListener('click', () => {status.textContent = '';dialog.showModal();});
+      document.getElementById('contact-close').addEventListener('click', () => dialog.close());
+      dialog.addEventListener('click', event => {if(event.target !== dialog)return;const r = dialog.getBoundingClientRect();if(event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom)dialog.close();});
+      document.getElementById('copy-message').addEventListener('click', async () => {
+        const message = document.getElementById('contact-message');
+        try {await navigator.clipboard.writeText(message.textContent);status.textContent = 'Сообщение скопировано. Его можно отправить в отдел или вашему пастору.';}
+        catch {const range = document.createRange();range.selectNodeContents(message);const selection = window.getSelection();selection.removeAllRanges();selection.addRange(range);status.textContent = 'Текст выделен. Скопируйте его через меню или сочетанием клавиш.';}
+      });
+      if('IntersectionObserver' in window){
+        const links = [...document.querySelectorAll('.nav a')];
+        const observer = new IntersectionObserver(entries => {for(const entry of entries){if(!entry.isIntersecting)continue;for(const link of links){if(link.hash === '#' + entry.target.id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');}}},{rootMargin:'-15% 0px -65% 0px'});
+        links.forEach(link => {const section = document.querySelector(link.hash);if(section)observer.observe(section);});
+      }
+      if(!matchMedia('(hover: hover) and (pointer: fine)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      document.querySelectorAll('.glass').forEach(card => {let frame;card.addEventListener('pointermove',event => {if(frame)cancelAnimationFrame(frame);const rect = card.getBoundingClientRect();frame=requestAnimationFrame(() => {card.style.setProperty('--x',event.clientX-rect.left+'px');card.style.setProperty('--y',event.clientY-rect.top+'px');});});card.addEventListener('pointerleave',() => {if(frame)cancelAnimationFrame(frame);card.style.removeProperty('--x');card.style.removeProperty('--y');});});
+    })();
+  </script>
 </body>
 </html>
